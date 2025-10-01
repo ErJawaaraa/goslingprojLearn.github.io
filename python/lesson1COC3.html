@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PROJECT LEARN</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      background-color: #f0fdf4;
+      overflow: hidden; /* prevent double scrollbars */
+    }
+    header {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: #22c55e;
+      color: black;
+      padding: 20px 10px 10px; /* tighter bottom padding */
+      text-align: center;
+      z-index: 1000;
+      border: 4px solid black;
+    }
+    header .title-btn {
+      display: inline-block;
+      padding: 15px 25px;
+      background: yellow;
+      color: black;
+      font-weight: bold;
+      font-size: 22px;
+      border: 4px solid black;
+      box-shadow: 6px 6px 0px black;
+      text-transform: uppercase;
+    }
+    header h1 {
+      margin: 8px 0 0 0; /* thinner space below title */
+      font-size: 18px;
+      font-weight: normal;
+    }
+    .container {
+      display: flex;
+      margin-top: 110px;
+      width: 100%;
+      height: calc(100vh - 110px);
+    }
+    .sidebar {
+  width: 200px;
+  background: #86efac;
+  padding: 30px 15px 15px; /* increased top padding */
+  position: fixed;
+  top: 110px;
+  left: 0;
+  height: calc(100vh - 110px);
+  border-right: 4px solid black;
+  overflow-y: auto;
+}
+    .sidebar button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      background: #22c55e;
+      color: white;
+      border: 4px solid black;
+      cursor: pointer;
+      font-weight: bold;
+      text-align: left;
+      transition: all 0.3s ease;
+      box-shadow: 6px 6px 0px black; /* brutalist block shadow */
+    }
+    .sidebar button:hover {
+      background: #15803d;
+      transform: translateX(5px);
+    }
+    .sidebar button.active {
+      background: yellow;
+      color: black;
+    }
+    .content {
+      flex: 1;
+      margin-left: 220px;
+      padding: 20px;
+      background: #f0fdf4;
+      border-left: 4px solid black;
+      height: calc(100vh - 110px);
+      overflow-y: auto;
+    }
+    .tabs {
+  display: flex;
+  border-bottom: 4px solid black;
+  margin-bottom: 15px;
+  margin-top: 50px; /* increased space above tabs */
+}
+    .tab {
+      padding: 6px 15px; /* thinner height */
+      background: #86efac;
+      cursor: pointer;
+      font-weight: bold;
+      border: 4px solid black;
+      border-bottom: none;
+      margin-right: 5px;
+    }
+    .tab:hover {
+      background: #34d399;
+    }
+    .tab.active {
+      background: yellow;
+      color: black;
+    }
+    .tab-content {
+      display: none;
+      border: 4px solid black;
+      padding: 20px;
+      padding-top: 20px; /* extra padding inside contents */
+      background: white;
+      max-height: calc(100vh - 200px);
+      overflow-y: auto;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .question {
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+    .options label {
+      display: block;
+      margin-left: 20px;
+    }
+    .navigation {
+      margin-top: 15px;
+    }
+    .navigation button {
+      padding: 8px 12px;
+      margin-right: 10px;
+      border: 4px solid black;
+      cursor: pointer;
+      background: #22c55e;
+      color: white;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 4px 4px 0px black; /* brutalist shadow for quiz buttons */
+    }
+    .navigation button:hover:not(:disabled) {
+      background: #15803d;
+    }
+    .navigation button:disabled {
+      background: #9ca3af;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+    button.check-btn {
+      margin-top: 20px;
+      padding: 10px 15px;
+      background: #22c55e;
+      color: white;
+      border: 4px solid black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 4px 4px 0px black;
+    }
+    button.check-btn:hover {
+      background: #15803d;
+    }
+    .score {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #065f46;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title-btn">PROJECT LEARN</div>
+    <h1>CORE COMPETENCY 3: Set-up Computer Server</h1>
+  </header>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+		<a href="index.html"><button>HOME</button></a>
+      <button class="active">LESSON 1</button>
+      <a href="lesson2.html"><button>LESSON 2</button></a>
+	  <a href="lesson3.html"><button>LESSON 3</button></a>
+	  <a href="lesson4.html"><button>LESSON 4</button></a>
+	  <a href="lesson5.html"><button>LESSON 5</button></a>
+	  <a href="lesson6.html"><button>LESSON 6</button></a>
+	  <a href="lesson7.html"><button>LESSON 7</button></a>
+    <a href="lesson3.html"><button>LESSON 8</button></a>
+	  <a href="lesson4.html"><button>LESSON 9</button></a>
+	  <a href="lesson5.html"><button>LESSON 10</button></a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+      <div class="tabs">
+        <div class="tab active" data-tab="pretest">PRE-TEST</div>
+        <div class="tab" data-tab="lesson">LESSON</div>
+        <div class="tab" data-tab="reinforcement">REINFORCEMENT</div>
+        <div class="tab" data-tab="posttest">POST-TEST</div>
+      </div>
+
+      <!-- Pre-Test -->
+    <div id="pretest" class="tab-content active">
+      <div class="question" id="pre-q1">
+        <p>1. A Network Operating System (NOS) is designed to primarily serve:</p>
+        <label><input type="radio" name="pre1" value="A"> A) Only one computer</label><br>
+        <label><input type="radio" name="pre1" value="B"> B) Workstations and devices in a network</label><br>
+        <label><input type="radio" name="pre1" value="C"> C) Mobile phones only</label><br>
+        <label><input type="radio" name="pre1" value="D"> D) Video game consoles</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q1','pre-q2')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q2" style="display:none;">
+        <p>2. What is the main purpose of a NOS?</p>
+        <label><input type="radio" name="pre2" value="A"> A) To speed up CPU performance</label><br>
+        <label><input type="radio" name="pre2" value="B"> B) To allow devices in a network to connect and share resources</label><br>
+        <label><input type="radio" name="pre2" value="C"> C) To update application</label><br>
+        <label><input type="radio" name="pre2" value="D"> D) To increase gprahics quality</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q2','pre-q3')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q3" style="display:none;">
+        <p>3. Which type of NOS lets all devices be treated equally in functionality?</p>
+        <label><input type="radio" name="pre3" value="A"> A) Hybrid system</label><br>
+        <label><input type="radio" name="pre3" value="B"> B) Client-server</label><br>
+        <label><input type="radio" name="pre3" value="C"> C) Peer-to-peer (P2P)</label><br>
+        <label><input type="radio" name="pre3" value="D"> D) Distributed system</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q3','pre-q4')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q4" style="display:none;">
+        <p>4. Which type of NOS relies on a centralized server to control resources?</p>
+        <label><input type="radio" name="pre4" value="A"> A) Client-server</label><br>
+        <label><input type="radio" name="pre4" value="B"> B) P2P</label><br>
+        <label><input type="radio" name="pre4" value="C"> C) Standalone OS</label><br>
+        <label><input type="radio" name="pre4" value="D"> D) None of the above</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q4','pre-q5')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q5" style="display:none;">
+        <p>5. Which NOS model is less expensive to set up?</p>
+        <label><input type="radio" name="pre5" value="A"> A) Client-server</label><br>
+        <label><input type="radio" name="pre5" value="B"> B) P2P</label><br>
+        <label><input type="radio" name="pre5" value="C"> C) Hybrid cloud</label><br>
+        <label><input type="radio" name="pre5" value="D"> D) Centralized OS</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q5','pre-q6')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q6" style="display:none;">
+        <p>6. Which NOS model requires more technical maintenance but offers centralized control?</p>
+        <label><input type="radio" name="pre6" value="A"> A) P2P</label><br>
+        <label><input type="radio" name="pre6" value="B"> B) Client-server</label><br>
+        <label><input type="radio" name="pre6" value="C"> C) Both P2P and Client-server</label><br>
+        <label><input type="radio" name="pre6" value="D"> D) None of the above</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q6','pre-q7')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q7" style="display:none;">
+        <p>7. What feature of NOS allows file and database sharing?</p>
+        <label><input type="radio" name="pre7" value="A"> A) Directory Services</label><br>
+        <label><input type="radio" name="pre7" value="B"> B) Network security</label><br>
+        <label><input type="radio" name="pre7" value="C"> C) Common file system</label><br>
+        <label><input type="radio" name="pre7" value="D"> D) Backup services</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q7','pre-q8')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q8" style="display:none;">
+        <p>8. Which of the following is a network security feature of NOS??</p>
+        <label><input type="radio" name="pre8" value="A"> A) Graphic processing</label><br>
+        <label><input type="radio" name="pre8" value="B"> B) User authentication and access control</label><br>
+        <label><input type="radio" name="pre8" value="C"> C) Audio playback</label><br>
+        <label><input type="radio" name="pre8" value="D"> D) Software installation</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q8','pre-q9')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q9" style="display:none;">
+        <p>9. Which feature allows printers and applications to be shared across the network?</p>
+        <label><input type="radio" name="pre9" value="A"> A) Directory services</label><br>
+        <label><input type="radio" name="pre9" value="B"> B) Printer and application sharing</label><br>
+        <label><input type="radio" name="pre9" value="C"> C) Internetworking</label><br>
+        <label><input type="radio" name="pre9" value="D"> D) Backup services</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q9','pre-q10')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q10" style="display:none;">
+        <p>10. A NOS supplies fundamental network functions and services that allow:</p>
+        <label><input type="radio" name="pre10" value="A"> A) Only one input request</label><br>
+        <label><input type="radio" name="pre10" value="B"> B) Multiple input requests at once</label><br>
+        <label><input type="radio" name="pre10" value="C"> C) Only server-to-server connection</label><br>
+        <label><input type="radio" name="pre10" value="D"> D) Offline file manager only</label><br>
+        <button class="quiz-btn" onclick="checkAnswers1('pre')">Check Answers</button>
+      </div>
+      <p id="pretest-score"></p>
+    </div>
+
+				  <!-- Lesson -->
+			<div id="lesson" class="tab-content">
+			  <div id="pdf-viewer-container">
+				<iframe id="pdf-viewer" src="lessons_coc3/COC3_L1.pdf" width="100%" height="600px" style="border:none;"></iframe>
+			  </div>
+			</div>
+
+      <!-- Reinforcement -->
+      <div id="reinforcement" class="tab-content">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/u-OJBUV5Eik?si=CQO6y_On3jZQDkxG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+
+      <!-- Post-Test -->
+    <div id="posttest" class="tab-content">
+      <div class="question" id="post-q1">
+        <p>1. A small LAN in a computer lab allows all computers to share files without a central server. This is an example of:</p>
+        <label><input type="radio" name="post1" value="A"> A) Client-server</label><br>
+        <label><input type="radio" name="post1" value="B"> B) P2P</label><br>
+        <label><input type="radio" name="post1" value="C"> C) Cloud OS</label><br>
+        <label><input type="radio" name="post1" value="D"> D) Distributed</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q1','post-q2')">Next Question</button>
+      </div>
+      <div class="question" id="post-q2" style="display:none;">
+        <p>2. A company installs a system where all employees access files through a central server. This setup uses:</p>
+        <label><input type="radio" name="post2" value="A"> A) P2P</label><br>
+        <label><input type="radio" name="post2" value="B"> B) Client-server</label><br>
+        <label><input type="radio" name="post2" value="C"> C) Standalone OS</label><br>
+        <label><input type="radio" name="post2" value="D"> D) Hybrid OS</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q2','post-q3')">Next Question</button>
+      </div>
+      <div class="question" id="post-q3" style="display:none;">
+        <p>3. Why might a business prefer a client-server model over P2P?</p>
+        <label><input type="radio" name="post3" value="A"> A) It cost less to set up</label><br>
+        <label><input type="radio" name="post3" value="B"> B) It requires no maintenance</label><br>
+        <label><input type="radio" name="post3" value="C"> C) It provides centralized control of the network</label><br>
+        <label><input type="radio" name="post3" value="D"> D) It allows unlimited free internet</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q3','post-q4')">Next Question</button>
+      </div>
+      <div class="question" id="post-q4" style="display:none;">
+        <p>4. A NOS feature that allows IT administrators to control user accounts and permissions is:</p>
+        <label><input type="radio" name="post4" value="A"> A) Backup service</label><br>
+        <label><input type="radio" name="post4" value="B"> B) Directory services</label><br>
+        <label><input type="radio" name="post4" value="C"> C) Application sharing</label><br>
+        <label><input type="radio" name="post4" value="D"> D) Internetworking</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q4','post-q5')">Next Question</button>
+      </div>
+      <div class="question" id="post-q5" style="display:none;">
+        <p>5. Which NOS feature ensures that resources like printers can be accessed by many users?</p>
+        <label><input type="radio" name="post5" value="A"> A) File system sharing</label><br>
+        <label><input type="radio" name="post5" value="B"> B) Printer and application sharing</label><br>
+        <label><input type="radio" name="post5" value="C"> C) Security authentication</label><br>
+        <label><input type="radio" name="post5" value="D"> D) Multiprocessing</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q5','post-q6')">Next Question</button>
+      </div>
+      <div class="question" id="post-q6" style="display:none;">
+        <p>6. A company wants to ensure that data is protected and restorable in case of failure. Which NOS feature is needed?</p>
+        <label><input type="radio" name="post6" value="A"> A) Database sharing</label><br>
+        <label><input type="radio" name="post6" value="B"> B) Backup services</label><br>
+        <label><input type="radio" name="post6" value="C"> C) Multiprocessing</label><br>
+        <label><input type="radio" name="post6" value="D"> D) Hardware detection</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q6','post-q7')">Next Question</button>
+      </div>
+      <div class="question" id="post-q7" style="display:none;">
+        <p>7. If a teacher wants to share a database with all students connected to the school network, which NOS feature is being used?</p>
+        <label><input type="radio" name="post7" value="A"> A) File and database sharing</label><br>
+        <label><input type="radio" name="post7" value="B"> B) Internetworking</label><br>
+        <label><input type="radio" name="post7" value="C"> C) Printer sharing</label><br>
+        <label><input type="radio" name="post7" value="D"> D) Security authentication</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q7','post-q8')">Next Question</button>
+      </div>
+      <div class="question" id="post-q8" style="display:none;">
+        <p>8. A system administrator sets user passwords and limits access to certain files. This demonstrates:</p>
+        <label><input type="radio" name="post8" value="A"> A) Application sharing</label><br>
+        <label><input type="radio" name="post8" value="B"> B) Network security</label><br>
+        <label><input type="radio" name="post8" value="C"> C) File system sharing</label><br>
+        <label><input type="radio" name="post8" value="D"> D) Hardware detection</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q8','post-q9')">Next Question</button>
+      </div>
+      <div class="question" id="post-q9" style="display:none;">
+        <p>9. A school network connects not only Pcs, but also printers and file servers. This is possibhle because NOS:</p>
+        <label><input type="radio" name="post9" value="A"> A) Only manages servers</label><br>
+        <label><input type="radio" name="post9" value="B"> B) Organizes actions of devices in a network</label><br>
+        <label><input type="radio" name="post9" value="C"> C) Is designed only for graphics</label><br>
+        <label><input type="radio" name="post9" value="D"> D) Functions offline only</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q9','post-q10')">Next Question</button>
+      </div>
+      <div class="question" id="post-q10" style="display:none;">
+        <p>10. Internetworking in NOS refers to:?</p>
+        <label><input type="radio" name="post10" value="A"> A) Sharing printers only</label><br>
+        <label><input type="radio" name="post10" value="B"> B) Connecting multiple networks together</label><br>
+        <label><input type="radio" name="post10" value="C"> C) Organizing only standalone devices</label><br>
+        <label><input type="radio" name="post10" value="D"> D) Installing offline apps</label><br>
+        <button class="quiz-btn" onclick="checkAnswers2('post')">Check Answers</button>
+      </div>
+      <p id="posttest-score"></p>
+    </div>
+    </div>
+  </div>
+
+  <script>
+    // Tab switching
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+
+
+    
+ /* Questions navigation */
+    function nextQuestion(currentId, nextId) {
+      document.getElementById(currentId).style.display = "none";
+      document.getElementById(nextId).style.display = "block";
+    }
+	
+	 /* Questions navigation for post test*/
+    function nextQuestion2(currentId, nextId) {
+      document.getElementById(currentId).style.display = "none";
+      document.getElementById(nextId).style.display = "block";
+    }
+
+    /* Check Answers for pretest */
+    function checkAnswers1(prefix) {
+      const correct = { pre1: "B", pre2: "B", pre3: "C", pre4: "A", pre5: "B", pre6: "B", pre7: "C", pre8: "B", pre9: "B", pre10: "B" };
+      let score = 0;
+      for (let key in correct) {
+        let selected = document.querySelector(`input[name=${key}]:checked`);
+        if (selected && selected.value === correct[key]) {
+          score++;
+        }
+      }
+      document.getElementById(prefix+"test-score").textContent = `Your score: ${score} / 10`;
+    }
+	
+	/* Check Answers for posttest */
+    function checkAnswers2(prefix) {
+      const correct = { post1: "B", post2: "B", post3: "C", post4: "B", post5: "B", post6: "B", post7: "A", post8: "B", post9: "B", post10: "B" };
+      let score2 = 0;
+      for (let key in correct) {
+        let selected = document.querySelector(`input[name=${key}]:checked`);
+        if (selected && selected.value === correct[key]) {
+          score2++;
+        }
+      }
+      document.getElementById(prefix+"test-score").textContent = `Your score: ${score2} / 10`;
+    }
+	
+  </script>
+</body>
+</html>

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PROJECT LEARN</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      background-color: #f0fdf4;
+      overflow: hidden; /* prevent double scrollbars */
+    }
+    header {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: #22c55e;
+      color: black;
+      padding: 20px 10px 10px; /* tighter bottom padding */
+      text-align: center;
+      z-index: 1000;
+      border: 4px solid black;
+    }
+    header .title-btn {
+      display: inline-block;
+      padding: 15px 25px;
+      background: yellow;
+      color: black;
+      font-weight: bold;
+      font-size: 22px;
+      border: 4px solid black;
+      box-shadow: 6px 6px 0px black;
+      text-transform: uppercase;
+    }
+    header h1 {
+      margin: 8px 0 0 0; /* thinner space below title */
+      font-size: 18px;
+      font-weight: normal;
+    }
+    .container {
+      display: flex;
+      margin-top: 110px;
+      width: 100%;
+      height: calc(100vh - 110px);
+    }
+    .sidebar {
+  width: 200px;
+  background: #86efac;
+  padding: 30px 15px 15px; /* increased top padding */
+  position: fixed;
+  top: 110px;
+  left: 0;
+  height: calc(100vh - 110px);
+  border-right: 4px solid black;
+  overflow-y: auto;
+}
+    .sidebar button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      background: #22c55e;
+      color: white;
+      border: 4px solid black;
+      cursor: pointer;
+      font-weight: bold;
+      text-align: left;
+      transition: all 0.3s ease;
+      box-shadow: 6px 6px 0px black; /* brutalist block shadow */
+    }
+    .sidebar button:hover {
+      background: #15803d;
+      transform: translateX(5px);
+    }
+    .sidebar button.active {
+      background: yellow;
+      color: black;
+    }
+    .content {
+      flex: 1;
+      margin-left: 220px;
+      padding: 20px;
+      background: #f0fdf4;
+      border-left: 4px solid black;
+      height: calc(100vh - 110px);
+      overflow-y: auto;
+    }
+    .tabs {
+  display: flex;
+  border-bottom: 4px solid black;
+  margin-bottom: 15px;
+  margin-top: 50px; /* increased space above tabs */
+}
+    .tab {
+      padding: 6px 15px; /* thinner height */
+      background: #86efac;
+      cursor: pointer;
+      font-weight: bold;
+      border: 4px solid black;
+      border-bottom: none;
+      margin-right: 5px;
+    }
+    .tab:hover {
+      background: #34d399;
+    }
+    .tab.active {
+      background: yellow;
+      color: black;
+    }
+    .tab-content {
+      display: none;
+      border: 4px solid black;
+      padding: 20px;
+      padding-top: 20px; /* extra padding inside contents */
+      background: white;
+      max-height: calc(100vh - 200px);
+      overflow-y: auto;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .question {
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+    .options label {
+      display: block;
+      margin-left: 20px;
+    }
+    .navigation {
+      margin-top: 15px;
+    }
+    .navigation button {
+      padding: 8px 12px;
+      margin-right: 10px;
+      border: 4px solid black;
+      cursor: pointer;
+      background: #22c55e;
+      color: white;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 4px 4px 0px black; /* brutalist shadow for quiz buttons */
+    }
+    .navigation button:hover:not(:disabled) {
+      background: #15803d;
+    }
+    .navigation button:disabled {
+      background: #9ca3af;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+    button.check-btn {
+      margin-top: 20px;
+      padding: 10px 15px;
+      background: #22c55e;
+      color: white;
+      border: 4px solid black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 4px 4px 0px black;
+    }
+    button.check-btn:hover {
+      background: #15803d;
+    }
+    .score {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #065f46;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title-btn">PROJECT LEARN</div>
+    <h1>CORE COMPETENCY 4: Maintain And Repair Computer System And Maintenance</h1>
+  </header>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+		<a href="index.html"><button>HOME</button></a>
+      <button>LESSON 1</button>
+      <a href="lesson2COC4.html"><button>LESSON 2</button></a>
+	  <a href="lesson3COC4.html"><button>LESSON 3</button></a>
+	  <a href="lesson4COC4.html"><button>LESSON 4</button></a>
+	  <a href="lesson5COC4.html"><button>LESSON 5</button></a>
+	  <a href="lesson6COC4.html"><button class="active">LESSON 6</button></a>
+	  <a href="lesson7COC4.html"><button>LESSON 7</button></a>
+    <a href="lesson8COC4.html"><button>LESSON 8</button></a>
+	  <a href="lesson9COC4.html"><button>LESSON 9</button></a>
+	  <a href="lesson10COC4.html"><button>LESSON 10</button></a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+      <div class="tabs">
+        <div class="tab active" data-tab="pretest">PRE-TEST</div>
+        <div class="tab" data-tab="lesson">LESSON</div>
+        <div class="tab" data-tab="reinforcement">REINFORCEMENT</div>
+        <div class="tab" data-tab="posttest">POST-TEST</div>
+      </div>
+
+      <!-- Pre-Test -->
+    <div id="pretest" class="tab-content active">
+      <div class="question" id="pre-q1">
+        <p>1. What does OHSE stand for?</p>
+        <label><input type="radio" name="pre1" value="A"> A) Occupational Health, Safety, and Environment</label><br>
+        <label><input type="radio" name="pre1" value="B"> B) Office Hardware Safety and Equipment</label><br>
+        <label><input type="radio" name="pre1" value="C"> C) Organizational Health and System Engineering</label><br>
+        <label><input type="radio" name="pre1" value="D"> D) Operational Hardware, Software, and Energy</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q1','pre-q2')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q2" style="display:none;">
+        <p>2. Occupational health in IT mainly focuses on:</p>
+        <label><input type="radio" name="pre2" value="A"> A) Server speed and data storage</label><br>
+        <label><input type="radio" name="pre2" value="B"> B) Employee physical and mental well-being</label><br>
+        <label><input type="radio" name="pre2" value="C"> C) Cybersecurity only</label><br>
+        <label><input type="radio" name="pre2" value="D"> D) Internet speed</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q2','pre-q3')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q3" style="display:none;">
+        <p>3. Which is an example of physical safety in IT?</p>
+        <label><input type="radio" name="pre3" value="A"> A) Avoiding phishing emails</label><br>
+        <label><input type="radio" name="pre3" value="B"> B) Using strong passwords</label><br>
+        <label><input type="radio" name="pre3" value="C"> C) Preventing electrical hazards</label><br>
+        <label><input type="radio" name="pre3" value="D"> D) Installing software updates</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q3','pre-q4')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q4" style="display:none;">
+        <p>4. What does environmental aspect of OHSE in IT include?</p>
+        <label><input type="radio" name="pre4" value="A"> A) Only cybersecurity threats</label><br>
+        <label><input type="radio" name="pre4" value="B"> B) Indoor air quality and electronic waste</label><br>
+        <label><input type="radio" name="pre4" value="C"> C) Faster software updates</label><br>
+        <label><input type="radio" name="pre4" value="D"> D) Internet browsing policies</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q4','pre-q5')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q5" style="display:none;">
+        <p>5. Which workplace issue is linked to poor posture and repetitive strain injuries?</p>
+        <label><input type="radio" name="pre5" value="A"> A) Indoor air quality</label><br>
+        <label><input type="radio" name="pre5" value="B"> B) Ergonomics and musculoskeletal disorders</label><br>
+        <label><input type="radio" name="pre5" value="C"> C) Digital safety</label><br>
+        <label><input type="radio" name="pre5" value="D"> D) Environmental impact</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q5','pre-q6')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q6" style="display:none;">
+        <p>6. Which is a mental health risk in the IT industry?</p>
+        <label><input type="radio" name="pre6" value="A"> A) Data backups</label><br>
+        <label><input type="radio" name="pre6" value="B"> B) Tight deadlines and job insecurity</label><br>
+        <label><input type="radio" name="pre6" value="C"> C) File sharing</label><br>
+        <label><input type="radio" name="pre6" value="D"> D) E-waste recycling</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q6','pre-q7')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q7" style="display:none;">
+        <p>7. What percentage of IT workers experience MSDs according to NIOSH?</p>
+        <label><input type="radio" name="pre7" value="A"> A) 25%</label><br>
+        <label><input type="radio" name="pre7" value="B"> B) 40%</label><br>
+        <label><input type="radio" name="pre7" value="C"> C) 60%+</label><br>
+        <label><input type="radio" name="pre7" value="D"> D) 80%</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q7','pre-q8')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q8" style="display:none;">
+        <p>8. Which of the following describes work-life balance challenges?</p>
+        <label><input type="radio" name="pre8" value="A"> A) Difficulty unplugging after work</label><br>
+        <label><input type="radio" name="pre8" value="B"> B) Buying new gadgets</label><br>
+        <label><input type="radio" name="pre8" value="C"> C) Using ergonomic chairs</label><br>
+        <label><input type="radio" name="pre8" value="D"> D) Cleaning e-waste properly</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q8','pre-q9')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q9" style="display:none;">
+        <p>9. What indoor factor may cause eye strain and headaches?</p>
+        <label><input type="radio" name="pre9" value="A"> A) Fresh air and good lighting</label><br>
+        <label><input type="radio" name="pre9" value="B"> B) Poor ventilation and blue light exposure</label><br>
+        <label><input type="radio" name="pre9" value="C"> C) Strong internet signal</label><br>
+        <label><input type="radio" name="pre9" value="D"> D) Updated software</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q9','pre-q10')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q10" style="display:none;">
+        <p>10. </p>
+        <label><input type="radio" name="pre10" value="A"> A) Data privacy</label><br>
+        <label><input type="radio" name="pre10" value="B"> B) Energy consumption</label><br>
+        <label><input type="radio" name="pre10" value="C"> C) E-waste expected to reach 74 million metric tons by 2030</label><br>
+        <label><input type="radio" name="pre10" value="D"> D) File system crashes</label><br>
+        <button class="quiz-btn" onclick="checkAnswers1('pre')">Check Answers</button>
+      </div>
+      <p id="pretest-score"></p>
+    </div>
+
+				  <!-- Lesson -->
+			<div id="lesson" class="tab-content">
+			  <div id="pdf-viewer-container">
+				<iframe id="pdf-viewer" src="lessons_coc4/COC4_L6.pdf" width="100%" height="600px" style="border:none;"></iframe>
+			  </div>
+			</div>
+
+      <!-- Reinforcement -->
+      <div id="reinforcement" class="tab-content">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1sb548iiuPY?si=uasaY2Qvy7aoJCNF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+
+      <!-- Post-Test -->
+    <div id="posttest" class="tab-content">
+      <div class="question" id="post-q1">
+        <p>1. Which of the following BEST reduces ergonomic risks for IT employees?</p>
+        <label><input type="radio" name="post1" value="A"> A) Buying more computers</label><br>
+        <label><input type="radio" name="post1" value="B"> B) Using adjustable chairs and proper posture</label><br>
+        <label><input type="radio" name="post1" value="C"> C) Installing faster Wi-Fi</label><br>
+        <label><input type="radio" name="post1" value="D"> D) Upgrading software regularly</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q1','post-q2')">Next Question</button>
+      </div>
+      <div class="question" id="post-q2" style="display:none;">
+        <p>2. An IT worker feels burned out due to long working hours. This is an example of:</p>
+        <label><input type="radio" name="post2" value="A"> A) Physical safety hazard</label><br>
+        <label><input type="radio" name="post2" value="B"> B) Digital safety issue</label><br>
+        <label><input type="radio" name="post2" value="C"> C) Mental health and stress challenge</label><br>
+        <label><input type="radio" name="post2" value="D"> D) Environmental impact</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q2','post-q3')">Next Question</button>
+      </div>
+      <div class="question" id="post-q3" style="display:none;">
+        <p>3. What should companies implement to prevent cybersecurity threats?</p>
+        <label><input type="radio" name="post3" value="A"> A) More ergonomic desks</label><br>
+        <label><input type="radio" name="post3" value="B"> B) Strong security protocols and employee training</label><br>
+        <label><input type="radio" name="post3" value="C"> C) Better ventilation systems</label><br>
+        <label><input type="radio" name="post3" value="D"> D) Recycling programs</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q3','post-q4')">Next Question</button>
+      </div>
+      <div class="question" id="post-q4" style="display:none;">
+        <p>4. A programmer suffers from eye strain due to screen exposure. What is the most likely cause?</p>
+        <label><input type="radio" name="post4" value="A"> A) Lack of antivirus protection</label><br>
+        <label><input type="radio" name="post4" value="B"> B) Lack of antivirus protection</label><br>
+        <label><input type="radio" name="post4" value="C"> C) Poor server speed</label><br>
+        <label><input type="radio" name="post4" value="D"> D) Too many emails</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q4','post-q5')">Next Question</button>
+      </div>
+      <div class="question" id="post-q5" style="display:none;">
+        <p>5. Which OHSE aspect ensures that IT workplaces do not harm nature?</p>
+        <label><input type="radio" name="post5" value="A"> A) Ergonomics</label><br>
+        <label><input type="radio" name="post5" value="B"> B) Environment</label><br>
+        <label><input type="radio" name="post5" value="C"> C) Digital safety</label><br>
+        <label><input type="radio" name="post5" value="D"> D) Mental health</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q5','post-q6')">Next Question</button>
+      </div>
+      <div class="question" id="post-q6" style="display:none;">
+        <p>6. A company enforces firewall protection and regular phishing awareness training. This is under:</p>
+        <label><input type="radio" name="post6" value="A"> A) Mental health</label><br>
+        <label><input type="radio" name="post6" value="B"> B) Digital safety</label><br>
+        <label><input type="radio" name="post6" value="C"> C) Ergonomics</label><br>
+        <label><input type="radio" name="post6" value="D"> D) Work-life balance</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q6','post-q7')">Next Question</button>
+      </div>
+      <div class="question" id="post-q7" style="display:none;">
+        <p>7. What is the main risk of improper electronic waste disposal?</p>
+        <label><input type="radio" name="post7" value="A"> A) Faster internet breakdown</label><br>
+        <label><input type="radio" name="post7" value="B"> B) Environmental degradation</label><br>
+        <label><input type="radio" name="post7" value="C"> C) Reduced ergonomics</label><br>
+        <label><input type="radio" name="post7" value="D"> D) Increased stress</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q7','post-q8')">Next Question</button>
+      </div>
+      <div class="question" id="post-q8" style="display:none;">
+        <p>8. Which OHSE challenge directly affects employee productivity in poorly ventilated offices?</p>
+        <label><input type="radio" name="post8" value="A"> A) Digital safety</label><br>
+        <label><input type="radio" name="post8" value="B"> B) Indoor environmental quality</label><br>
+        <label><input type="radio" name="post8" value="C"> C) Work-life balance</label><br>
+        <label><input type="radio" name="post8" value="D"> D) Mental health</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q8','post-q9')">Next Question</button>
+      </div>
+      <div class="question" id="post-q9" style="display:none;">
+        <p>9. If employees struggle to disconnect from work during remote setup, which OHSE issue is involved?</p>
+        <label><input type="radio" name="post9" value="A"> A) Work-life balance</label><br>
+        <label><input type="radio" name="post9" value="B"> B) Environmental impact</label><br>
+        <label><input type="radio" name="post9" value="C"> C) Ergonomics</label><br>
+        <label><input type="radio" name="post9" value="D"> D) Cybersecurity</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q9','post-q10')">Next Question</button>
+      </div>
+      <div class="question" id="post-q10" style="display:none;">
+        <p>10. A company sets up an e-waste recycling program for old hardware. Which OHSE component is applied?</p>
+        <label><input type="radio" name="post10" value="A"> A) Occupational health</label><br>
+        <label><input type="radio" name="post10" value="B"> B) Safety</label><br>
+        <label><input type="radio" name="post10" value="C"> C) Environment</label><br>
+        <label><input type="radio" name="post10" value="D"> D) Work-life balance</label><br>
+        <button class="quiz-btn" onclick="checkAnswers2('post')">Check Answers</button>
+      </div>
+      <p id="posttest-score"></p>
+    </div>
+    </div>
+  </div>
+
+  <script>
+    // Tab switching
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+
+
+    
+ /* Questions navigation */
+    function nextQuestion(currentId, nextId) {
+      document.getElementById(currentId).style.display = "none";
+      document.getElementById(nextId).style.display = "block";
+    }
+	
+	 /* Questions navigation for post test*/
+    function nextQuestion2(currentId, nextId) {
+      document.getElementById(currentId).style.display = "none";
+      document.getElementById(nextId).style.display = "block";
+    }
+
+    /* Check Answers for pretest */
+    function checkAnswers1(prefix) {
+      const correct = { pre1: "A", pre2: "B", pre3: "C", pre4: "B", pre5: "B", pre6: "B", pre7: "C", pre8: "A", pre9: "D", pre10: "C" };
+      let score = 0;
+      for (let key in correct) {
+        let selected = document.querySelector(`input[name=${key}]:checked`);
+        if (selected && selected.value === correct[key]) {
+          score++;
+        }
+      }
+      document.getElementById(prefix+"test-score").textContent = `Your score: ${score} / 10`;
+    }
+	
+	/* Check Answers for posttest */
+    function checkAnswers2(prefix) {
+      const correct = { post1: "B", post2: "C", post3: "B", post4: "B", post5: "B", post6: "B", post7: "B", post8: "B", post9: "A", post10: "C" };
+      let score2 = 0;
+      for (let key in correct) {
+        let selected = document.querySelector(`input[name=${key}]:checked`);
+        if (selected && selected.value === correct[key]) {
+          score2++;
+        }
+      }
+      document.getElementById(prefix+"test-score").textContent = `Your score: ${score2} / 10`;
+    }
+	
+  </script>
+</body>
+</html>

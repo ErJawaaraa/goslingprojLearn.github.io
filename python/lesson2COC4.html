@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PROJECT LEARN</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      background-color: #f0fdf4;
+      overflow: hidden; /* prevent double scrollbars */
+    }
+    header {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: #22c55e;
+      color: black;
+      padding: 20px 10px 10px; /* tighter bottom padding */
+      text-align: center;
+      z-index: 1000;
+      border: 4px solid black;
+    }
+    header .title-btn {
+      display: inline-block;
+      padding: 15px 25px;
+      background: yellow;
+      color: black;
+      font-weight: bold;
+      font-size: 22px;
+      border: 4px solid black;
+      box-shadow: 6px 6px 0px black;
+      text-transform: uppercase;
+    }
+    header h1 {
+      margin: 8px 0 0 0; /* thinner space below title */
+      font-size: 18px;
+      font-weight: normal;
+    }
+    .container {
+      display: flex;
+      margin-top: 110px;
+      width: 100%;
+      height: calc(100vh - 110px);
+    }
+    .sidebar {
+  width: 200px;
+  background: #86efac;
+  padding: 30px 15px 15px; /* increased top padding */
+  position: fixed;
+  top: 110px;
+  left: 0;
+  height: calc(100vh - 110px);
+  border-right: 4px solid black;
+  overflow-y: auto;
+}
+    .sidebar button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      background: #22c55e;
+      color: white;
+      border: 4px solid black;
+      cursor: pointer;
+      font-weight: bold;
+      text-align: left;
+      transition: all 0.3s ease;
+      box-shadow: 6px 6px 0px black; /* brutalist block shadow */
+    }
+    .sidebar button:hover {
+      background: #15803d;
+      transform: translateX(5px);
+    }
+    .sidebar button.active {
+      background: yellow;
+      color: black;
+    }
+    .content {
+      flex: 1;
+      margin-left: 220px;
+      padding: 20px;
+      background: #f0fdf4;
+      border-left: 4px solid black;
+      height: calc(100vh - 110px);
+      overflow-y: auto;
+    }
+    .tabs {
+  display: flex;
+  border-bottom: 4px solid black;
+  margin-bottom: 15px;
+  margin-top: 50px; /* increased space above tabs */
+}
+    .tab {
+      padding: 6px 15px; /* thinner height */
+      background: #86efac;
+      cursor: pointer;
+      font-weight: bold;
+      border: 4px solid black;
+      border-bottom: none;
+      margin-right: 5px;
+    }
+    .tab:hover {
+      background: #34d399;
+    }
+    .tab.active {
+      background: yellow;
+      color: black;
+    }
+    .tab-content {
+      display: none;
+      border: 4px solid black;
+      padding: 20px;
+      padding-top: 20px; /* extra padding inside contents */
+      background: white;
+      max-height: calc(100vh - 200px);
+      overflow-y: auto;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .question {
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+    .options label {
+      display: block;
+      margin-left: 20px;
+    }
+    .navigation {
+      margin-top: 15px;
+    }
+    .navigation button {
+      padding: 8px 12px;
+      margin-right: 10px;
+      border: 4px solid black;
+      cursor: pointer;
+      background: #22c55e;
+      color: white;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 4px 4px 0px black; /* brutalist shadow for quiz buttons */
+    }
+    .navigation button:hover:not(:disabled) {
+      background: #15803d;
+    }
+    .navigation button:disabled {
+      background: #9ca3af;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+    button.check-btn {
+      margin-top: 20px;
+      padding: 10px 15px;
+      background: #22c55e;
+      color: white;
+      border: 4px solid black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 4px 4px 0px black;
+    }
+    button.check-btn:hover {
+      background: #15803d;
+    }
+    .score {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #065f46;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title-btn">PROJECT LEARN</div>
+    <h1>CORE COMPETENCY 4: Maintain And Repair Computer System And Maintenance</h1>
+  </header>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+		<a href="index.html"><button>HOME</button></a>
+      <button>LESSON 1</button>
+      <a href="lesson2COC4.html"><button class="active">LESSON 2</button></a>
+	  <a href="lesson3COC4.html"><button>LESSON 3</button></a>
+	  <a href="lesson4COC4.html"><button>LESSON 4</button></a>
+	  <a href="lesson5COC4.html"><button>LESSON 5</button></a>
+	  <a href="lesson6COC4.html"><button>LESSON 6</button></a>
+	  <a href="lesson7COC4.html"><button>LESSON 7</button></a>
+    <a href="lesson8COC4.html"><button>LESSON 8</button></a>
+	  <a href="lesson9COC4.html"><button>LESSON 9</button></a>
+	  <a href="lesson10COC4.html"><button>LESSON 10</button></a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+      <div class="tabs">
+        <div class="tab active" data-tab="pretest">PRE-TEST</div>
+        <div class="tab" data-tab="lesson">LESSON</div>
+        <div class="tab" data-tab="reinforcement">REINFORCEMENT</div>
+        <div class="tab" data-tab="posttest">POST-TEST</div>
+      </div>
+
+      <!-- Pre-Test -->
+    <div id="pretest" class="tab-content active">
+      <div class="question" id="pre-q1">
+        <p>1. What are end user requirements in software development?</p>
+        <label><input type="radio" name="pre1" value="A"> A) The needs and expectations of the people using the system</label><br>
+        <label><input type="radio" name="pre1" value="B"> B) The programming language used in software development</label><br>
+        <label><input type="radio" name="pre1" value="C"> C) The physical hardware requirements of a computer</label><br>
+        <label><input type="radio" name="pre1" value="D"> D) The budget for creating a system</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q1','pre-q2')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q2" style="display:none;">
+        <p>2. Why are user requirements important in software development?</p>
+        <label><input type="radio" name="pre2" value="A"> A) They increase the system cost</label><br>
+        <label><input type="radio" name="pre2" value="B"> B) They ensure the system meets the users’ needs</label><br>
+        <label><input type="radio" name="pre2" value="C"> C) They make the program harder to use</label><br>
+        <label><input type="radio" name="pre2" value="D"> D) They reduce team collaboration</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q2','pre-q3')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q3" style="display:none;">
+        <p>3. Which is NOT a consequence of ignoring user requirements?</p>
+        <label><input type="radio" name="pre3" value="A"> A) User satisfaction</label><br>
+        <label><input type="radio" name="pre3" value="B"> B) Low adoption rates</label><br>
+        <label><input type="radio" name="pre3" value="C"> C) Business inefficiencies</label><br>
+        <label><input type="radio" name="pre3" value="D"> D) Failure to meet user needs</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q3','pre-q4')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q4" style="display:none;">
+        <p>4. Which type of requirement defines functionalities and features of a software system?</p>
+        <label><input type="radio" name="pre4" value="A"> A) Usability requirements</label><br>
+        <label><input type="radio" name="pre4" value="B"> B) Functional requirements</label><br>
+        <label><input type="radio" name="pre4" value="C"> C) Interface requirements</label><br>
+        <label><input type="radio" name="pre4" value="D"> D) Design requirements</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q4','pre-q5')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q5" style="display:none;">
+        <p>5. An example of a functional requirement is:</p>
+        <label><input type="radio" name="pre5" value="A"> A) Color scheme of the application</label><br>
+        <label><input type="radio" name="pre5" value="B"> B) Color scheme of the application</label><br>
+        <label><input type="radio" name="pre5" value="C"> C) Error messages displayed</label><br>
+        <label><input type="radio" name="pre5" value="D"> D) Font styles used</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q5','pre-q6')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q6" style="display:none;">
+        <p>6. What do usability requirements focus on?</p>
+        <label><input type="radio" name="pre6" value="A"> A) System speed and memory usage</label><br>
+        <label><input type="radio" name="pre6" value="B"> B) User experience and ease of interaction</label><br>
+        <label><input type="radio" name="pre6" value="C"> C) Programming logic of the system</label><br>
+        <label><input type="radio" name="pre6" value="D"> D) Hardware setup</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q6','pre-q7')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q7" style="display:none;">
+        <p>7. Which of the following is an example of usability requirements?</p>
+        <label><input type="radio" name="pre7" value="A"> A) Compatibility with devices and browsers</label><br>
+        <label><input type="radio" name="pre7" value="B"> B) User authentication process</label><br>
+        <label><input type="radio" name="pre7" value="C"> C) Data retrieval and reporting</label><br>
+        <label><input type="radio" name="pre7" value="D"> D) Integration with external systems</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q7','pre-q8')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q8" style="display:none;">
+        <p>8. What do user interface (UI) requirements describe?</p>
+        <label><input type="radio" name="pre8" value="A"> A) How users log in to the system</label><br>
+        <label><input type="radio" name="pre8" value="B"> B) The visual layout and presentation of the interface</label><br>
+        <label><input type="radio" name="pre8" value="C"> C) The database structure</label><br>
+        <label><input type="radio" name="pre8" value="D"> D) The type of coding used</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q8','pre-q9')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q9" style="display:none;">
+        <p>9. Which of the following is an example of UI requirement?</p>
+        <label><input type="radio" name="pre9" value="A"> A) Intuitive navigation</label><br>
+        <label><input type="radio" name="pre9" value="B"> B) Dropdown menus and color schemes</label><br>
+        <label><input type="radio" name="pre9" value="C"> C) Reporting capabilities</label><br>
+        <label><input type="radio" name="pre9" value="D"> D) Integration with cloud systems</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q9','pre-q10')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q10" style="display:none;">
+        <p>10. Which skill is a basic requirement to use a server OS?</p>
+        <label><input type="radio" name="pre10" value="A"> A) Painting skills</label><br>
+        <label><input type="radio" name="pre10" value="B"> B) Basic Windows operating system skills</label><br>
+        <label><input type="radio" name="pre10" value="C"> C) Video editing skills</label><br>
+        <label><input type="radio" name="pre10" value="D"> D) Programming in Python</label><br>
+        <button class="quiz-btn" onclick="checkAnswers1('pre')">Check Answers</button>
+      </div>
+      <p id="pretest-score"></p>
+    </div>
+
+				  <!-- Lesson -->
+			<div id="lesson" class="tab-content">
+			  <div id="pdf-viewer-container">
+				<iframe id="pdf-viewer" src="lessons_coc4/COC4_L2.pdf" width="100%" height="600px" style="border:none;"></iframe>
+			  </div>
+			</div>
+
+      <!-- Reinforcement -->
+      <div id="reinforcement" class="tab-content">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/UZmyA6fPwkg?si=jbIt-55bd0pgiQpQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+
+      <!-- Post-Test -->
+    <div id="posttest" class="tab-content">
+      <div class="question" id="post-q1">
+        <p>1. A company creates a system that users find difficult to navigate. Which requirement was likely ignored?</p>
+        <label><input type="radio" name="post1" value="A"> A) Functional requirements</label><br>
+        <label><input type="radio" name="post1" value="B"> B) Usability requirements</label><br>
+        <label><input type="radio" name="post1" value="C"> C) Server OS requirements</label><br>
+        <label><input type="radio" name="post1" value="D"> D) Hardware requirements</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q1','post-q2')">Next Question</button>
+      </div>
+      <div class="question" id="post-q2" style="display:none;">
+        <p>2. If a software includes data reporting and retrieval, which type of requirement does this fulfill?</p>
+        <label><input type="radio" name="post2" value="A"> A) Functional requirement</label><br>
+        <label><input type="radio" name="post2" value="B"> B) Usability requirement</label><br>
+        <label><input type="radio" name="post2" value="C"> C) User interface requirement</label><br>
+        <label><input type="radio" name="post2" value="D"> D) Server OS requirement</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q2','post-q3')">Next Question</button>
+      </div>
+      <div class="question" id="post-q3" style="display:none;">
+        <p>3. A developer is designing the color scheme and font style of a website. Which type of requirement is this?</p>
+        <label><input type="radio" name="post3" value="A"> A) Functional</label><br>
+        <label><input type="radio" name="post3" value="B"> B) Usability</label><br>
+        <label><input type="radio" name="post3" value="C"> C) User Interface</label><br>
+        <label><input type="radio" name="post3" value="D"> D) Server OS</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q3','post-q4')">Next Question</button>
+      </div>
+      <div class="question" id="post-q4" style="display:none;">
+        <p>4. Why should developers always consult end users before finalizing system requirements?</p>
+        <label><input type="radio" name="post4" value="A"> A) To reduce costs only</label><br>
+        <label><input type="radio" name="post4" value="B"> B) To ensure the system matches user needs and goals</label><br>
+        <label><input type="radio" name="post4" value="C"> C) To make the project shorter</label><br>
+        <label><input type="radio" name="post4" value="D"> D) To avoid using programming languages</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q4','post-q5')">Next Question</button>
+      </div>
+      <div class="question" id="post-q5" style="display:none;">
+        <p>5. Which of the following BEST shows the importance of user requirements?</p>
+        <label><input type="radio" name="post5" value="A"> A) They help in writing code quickly</label><br>
+        <label><input type="radio" name="post5" value="B"> B) They ensure software solutions meet user needs</label><br>
+        <label><input type="radio" name="post5" value="C"> C) They guarantee faster internet speed</label><br>
+        <label><input type="radio" name="post5" value="D"> D) They reduce the need for testing</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q5','post-q6')">Next Question</button>
+      </div>
+      <div class="question" id="post-q6" style="display:none;">
+        <p>6. Which is an example of a usability requirement in an online app?</p>
+        <label><input type="radio" name="post6" value="A"> A) Providing intuitive navigation menus</label><br>
+        <label><input type="radio" name="post6" value="B"> B) Allowing database integration</label><br>
+        <label><input type="radio" name="post6" value="C"> C) Offering multi-factor authentication</label><br>
+        <label><input type="radio" name="post6" value="D"> D) Using SQL for queries</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q6','post-q7')">Next Question</button>
+      </div>
+      <div class="question" id="post-q7" style="display:none;">
+        <p>7. Which requirement ensures the system is aesthetically engaging for users?</p>
+        <label><input type="radio" name="post7" value="A"> A) Functional requirement</label><br>
+        <label><input type="radio" name="post7" value="B"> B) User interface requirement</label><br>
+        <label><input type="radio" name="post7" value="C"> C) Usability requirement</label><br>
+        <label><input type="radio" name="post7" value="D"> D) Server OS requirement</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q7','post-q8')">Next Question</button>
+      </div>
+      <div class="question" id="post-q8" style="display:none;">
+        <p>8. An IT staff member manages user accounts and access permissions in a server OS. Which requirement skill is this?</p>
+        <label><input type="radio" name="post8" value="A"> A) Networking fundamentals</label><br>
+        <label><input type="radio" name="post8" value="B"> B) Security & maintenance</label><br>
+        <label><input type="radio" name="post8" value="C"> C) User & access management</label><br>
+        <label><input type="radio" name="post8" value="D"> D) Troubleshooting</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q8','post-q9')">Next Question</button>
+      </div>
+      <div class="question" id="post-q9" style="display:none;">
+        <p>9. Which skill is essential for diagnosing problems in a Server OS environment?</p>
+        <label><input type="radio" name="post9" value="A"> A) Graphic design</label><br>
+        <label><input type="radio" name="post9" value="B"> B) Basic troubleshooting</label><br>
+        <label><input type="radio" name="post9" value="C"> C) Video editing</label><br>
+        <label><input type="radio" name="post9" value="D"> D) Social media management</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q9','post-q10')">Next Question</button>
+      </div>
+      <div class="question" id="post-q10" style="display:none;">
+        <p>10. A system that fails to meet user expectations will most likely result in:</p>
+        <label><input type="radio" name="post10" value="A"> A) Higher adoption rates</label><br>
+        <label><input type="radio" name="post10" value="B"> B) Higher adoption rates</label><br>
+        <label><input type="radio" name="post10" value="C"> C) Improved efficiency</label><br>
+        <label><input type="radio" name="post10" value="D"> D) </label><br>
+        <button class="quiz-btn" onclick="checkAnswers2('post')">Check Answers</button>
+      </div>
+      <p id="posttest-score"></p>
+    </div>
+    </div>
+  </div>
+
+  <script>
+    // Tab switching
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+
+
+    
+ /* Questions navigation */
+    function nextQuestion(currentId, nextId) {
+      document.getElementById(currentId).style.display = "none";
+      document.getElementById(nextId).style.display = "block";
+    }
+	
+	 /* Questions navigation for post test*/
+    function nextQuestion2(currentId, nextId) {
+      document.getElementById(currentId).style.display = "none";
+      document.getElementById(nextId).style.display = "block";
+    }
+
+    /* Check Answers for pretest */
+    function checkAnswers1(prefix) {
+      const correct = { pre1: "A", pre2: "B", pre3: "A", pre4: "B", pre5: "B", pre6: "B", pre7: "A", pre8: "B", pre9: "B", pre10: "B" };
+      let score = 0;
+      for (let key in correct) {
+        let selected = document.querySelector(`input[name=${key}]:checked`);
+        if (selected && selected.value === correct[key]) {
+          score++;
+        }
+      }
+      document.getElementById(prefix+"test-score").textContent = `Your score: ${score} / 10`;
+    }
+	
+	/* Check Answers for posttest */
+    function checkAnswers2(prefix) {
+      const correct = { post1: "B", post2: "A", post3: "C", post4: "B", post5: "B", post6: "A", post7: "B", post8: "C", post9: "B", post10: "B" };
+      let score2 = 0;
+      for (let key in correct) {
+        let selected = document.querySelector(`input[name=${key}]:checked`);
+        if (selected && selected.value === correct[key]) {
+          score2++;
+        }
+      }
+      document.getElementById(prefix+"test-score").textContent = `Your score: ${score2} / 10`;
+    }
+	
+  </script>
+</body>
+</html>

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PROJECT LEARN</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      background-color: #f0fdf4;
+      overflow: hidden; /* prevent double scrollbars */
+    }
+    header {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: #22c55e;
+      color: black;
+      padding: 20px 10px 10px; /* tighter bottom padding */
+      text-align: center;
+      z-index: 1000;
+      border: 4px solid black;
+    }
+    header .title-btn {
+      display: inline-block;
+      padding: 15px 25px;
+      background: yellow;
+      color: black;
+      font-weight: bold;
+      font-size: 22px;
+      border: 4px solid black;
+      box-shadow: 6px 6px 0px black;
+      text-transform: uppercase;
+    }
+    header h1 {
+      margin: 8px 0 0 0; /* thinner space below title */
+      font-size: 18px;
+      font-weight: normal;
+    }
+    .container {
+      display: flex;
+      margin-top: 110px;
+      width: 100%;
+      height: calc(100vh - 110px);
+    }
+    .sidebar {
+  width: 200px;
+  background: #86efac;
+  padding: 30px 15px 15px; /* increased top padding */
+  position: fixed;
+  top: 110px;
+  left: 0;
+  height: calc(100vh - 110px);
+  border-right: 4px solid black;
+  overflow-y: auto;
+}
+    .sidebar button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      background: #22c55e;
+      color: white;
+      border: 4px solid black;
+      cursor: pointer;
+      font-weight: bold;
+      text-align: left;
+      transition: all 0.3s ease;
+      box-shadow: 6px 6px 0px black; /* brutalist block shadow */
+    }
+    .sidebar button:hover {
+      background: #15803d;
+      transform: translateX(5px);
+    }
+    .sidebar button.active {
+      background: yellow;
+      color: black;
+    }
+    .content {
+      flex: 1;
+      margin-left: 220px;
+      padding: 20px;
+      background: #f0fdf4;
+      border-left: 4px solid black;
+      height: calc(100vh - 110px);
+      overflow-y: auto;
+    }
+    .tabs {
+  display: flex;
+  border-bottom: 4px solid black;
+  margin-bottom: 15px;
+  margin-top: 50px; /* increased space above tabs */
+}
+    .tab {
+      padding: 6px 15px; /* thinner height */
+      background: #86efac;
+      cursor: pointer;
+      font-weight: bold;
+      border: 4px solid black;
+      border-bottom: none;
+      margin-right: 5px;
+    }
+    .tab:hover {
+      background: #34d399;
+    }
+    .tab.active {
+      background: yellow;
+      color: black;
+    }
+    .tab-content {
+      display: none;
+      border: 4px solid black;
+      padding: 20px;
+      padding-top: 20px; /* extra padding inside contents */
+      background: white;
+      max-height: calc(100vh - 200px);
+      overflow-y: auto;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .question {
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+    .options label {
+      display: block;
+      margin-left: 20px;
+    }
+    .navigation {
+      margin-top: 15px;
+    }
+    .navigation button {
+      padding: 8px 12px;
+      margin-right: 10px;
+      border: 4px solid black;
+      cursor: pointer;
+      background: #22c55e;
+      color: white;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 4px 4px 0px black; /* brutalist shadow for quiz buttons */
+    }
+    .navigation button:hover:not(:disabled) {
+      background: #15803d;
+    }
+    .navigation button:disabled {
+      background: #9ca3af;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+    button.check-btn {
+      margin-top: 20px;
+      padding: 10px 15px;
+      background: #22c55e;
+      color: white;
+      border: 4px solid black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 4px 4px 0px black;
+    }
+    button.check-btn:hover {
+      background: #15803d;
+    }
+    .score {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #065f46;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title-btn">PROJECT LEARN</div>
+    <h1>CORE COMPETENCY 4: Maintain And Repair Computer System And Maintenance</h1>
+  </header>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+		<a href="index.html"><button>HOME</button></a>
+      <button>LESSON 1</button>
+      <a href="lesson2COC4.html"><button>LESSON 2</button></a>
+	  <a href="lesson3COC4.html"><button class="active">LESSON 3</button></a>
+	  <a href="lesson4COC4.html"><button>LESSON 4</button></a>
+	  <a href="lesson5COC4.html"><button>LESSON 5</button></a>
+	  <a href="lesson6COC4.html"><button>LESSON 6</button></a>
+	  <a href="lesson7COC4.html"><button>LESSON 7</button></a>
+    <a href="lesson8COC4.html"><button>LESSON 8</button></a>
+	  <a href="lesson9COC4.html"><button>LESSON 9</button></a>
+	  <a href="lesson10COC4.html"><button>LESSON 10</button></a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+      <div class="tabs">
+        <div class="tab active" data-tab="pretest">PRE-TEST</div>
+        <div class="tab" data-tab="lesson">LESSON</div>
+        <div class="tab" data-tab="reinforcement">REINFORCEMENT</div>
+        <div class="tab" data-tab="posttest">POST-TEST</div>
+      </div>
+
+      <!-- Pre-Test -->
+    <div id="pretest" class="tab-content active">
+      <div class="question" id="pre-q1">
+        <p>1. What does computer maintenance primarily aim to ensure?</p>
+        <label><input type="radio" name="pre1" value="A"> A) Faster internet connection</label><br>
+        <label><input type="radio" name="pre1" value="B"> B) Proper functioning of computer equipment</label><br>
+        <label><input type="radio" name="pre1" value="C"> C) Lower electricity bills</label><br>
+        <label><input type="radio" name="pre1" value="D"> D) More storage space</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q1','pre-q2')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q2" style="display:none;">
+        <p>2. Which type of maintenance is performed after a fault has occurred?</p>
+        <label><input type="radio" name="pre2" value="A"> A) Preventive Maintenance</label><br>
+        <label><input type="radio" name="pre2" value="B"> B) Corrective Maintenance</label><br>
+        <label><input type="radio" name="pre2" value="C"> C) Planned Maintenance</label><br>
+        <label><input type="radio" name="pre2" value="D"> D) Condition-based Maintenance</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q2','pre-q3')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q3" style="display:none;">
+        <p>3. Which type of maintenance is performed after a fault has occurred?</p>
+        <label><input type="radio" name="pre3" value="A"> A) Corrective Maintenance</label><br>
+        <label><input type="radio" name="pre3" value="B"> B) Preventive Maintenance</label><br>
+        <label><input type="radio" name="pre3" value="C"> C) Diagnostic Maintenance</label><br>
+        <label><input type="radio" name="pre3" value="D"> D) Manual Maintenance</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q3','pre-q4')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q4" style="display:none;">
+        <p>4. Which of the following is an example of planned preventive maintenance?</p>
+        <label><input type="radio" name="pre4" value="A"> A) Waiting for the PC to crash before fixing it</label><br>
+        <label><input type="radio" name="pre4" value="B"> B) Running a malware scan once a week</label><br>
+        <label><input type="radio" name="pre4" value="C"> C) Ignoring error messages</label><br>
+        <label><input type="radio" name="pre4" value="D"> D) Shutting down via the power button only</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q4','pre-q5')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q5" style="display:none;">
+        <p>5. Which maintenance activity helps keep the PC running fast and efficiently?</p>
+        <label><input type="radio" name="pre5" value="A"> A) Virus scanning</label><br>
+        <label><input type="radio" name="pre5" value="B"> B) Disk defragmentation</label><br>
+        <label><input type="radio" name="pre5" value="C"> C) Installing more RAM</label><br>
+        <label><input type="radio" name="pre5" value="D"> D) Deleting applications</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q5','pre-q6')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q6" style="display:none;">
+        <p>6. What does Condition-based Maintenance rely on?</p>
+        <label><input type="radio" name="pre6" value="A"> A) Time schedules</label><br>
+        <label><input type="radio" name="pre6" value="B"> B) User complaints</label><br>
+        <label><input type="radio" name="pre6" value="C"> C) Actual condition and performance indicators</label><br>
+        <label><input type="radio" name="pre6" value="D"> D) Software installation</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q6','pre-q7')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q7" style="display:none;">
+        <p>7. Which of the following is a hand tool maintenance safety rule?</p>
+        <label><input type="radio" name="pre7" value="A"> A) Carry tools inside pockets</label><br>
+        <label><input type="radio" name="pre7" value="B"> B) Use cracked or loose tools</label><br>
+        <label><input type="radio" name="pre7" value="C"> C) Keep cutting tools sharp and lubricated</label><br>
+        <label><input type="radio" name="pre7" value="D"> D) Store tools randomly</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q7','pre-q8')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q8" style="display:none;">
+        <p>8. Which tool use guideline is most important for preventing eye injuries?</p>
+        <label><input type="radio" name="pre8" value="A"> A) Use high-quality tools</label><br>
+        <label><input type="radio" name="pre8" value="B"> B) Wear approved eye protection</label><br>
+        <label><input type="radio" name="pre8" value="C"> C) Always cut at a 45-degree angle</label><br>
+        <label><input type="radio" name="pre8" value="D"> D) Avoid using insulated tools</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q8','pre-q9')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q9" style="display:none;">
+        <p>9. Which safety rule applies when cutting wires or bolts?</p>
+        <label><input type="radio" name="pre9" value="A"> A) Cut at a 90-degree angle</label><br>
+        <label><input type="radio" name="pre9" value="B"> B) Rock pliers when cutting</label><br>
+        <label><input type="radio" name="pre9" value="C"> C) Use unsharpened cutters</label><br>
+        <label><input type="radio" name="pre9" value="D"> D) Cut without securing the work</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q9','pre-q10')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q10" style="display:none;">
+        <p>10. Which of the following is part of a systematic maintenance plan for software?</p>
+        <label><input type="radio" name="pre10" value="A"> A) Place computer in a ventilated area</label><br>
+        <label><input type="radio" name="pre10" value="B"> B) Clean internal hardware</label><br>
+        <label><input type="radio" name="pre10" value="C"> C) Backup files and update antivirus</label><br>
+        <label><input type="radio" name="pre10" value="D"> D) Unplug the computer when moving</label><br>
+        <button class="quiz-btn" onclick="checkAnswers1('pre')">Check Answers</button>
+      </div>
+      <p id="pretest-score"></p>
+    </div>
+
+				  <!-- Lesson -->
+			<div id="lesson" class="tab-content">
+			  <div id="pdf-viewer-container">
+				<iframe id="pdf-viewer" src="lessons_coc4/COC4_L3.pdf" width="100%" height="600px" style="border:none;"></iframe>
+			  </div>
+			</div>
+
+      <!-- Reinforcement -->
+      <div id="reinforcement" class="tab-content">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VlLlEAUHCLw?si=KHZF2bZQiIqqv5f4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+
+      <!-- Post-Test -->
+    <div id="posttest" class="tab-content">
+      <div class="question" id="post-q1">
+        <p>1. A technician performs a virus scan every week to prevent infection. This is an example of:</p>
+        <label><input type="radio" name="post1" value="A"> A) Corrective maintenance</label><br>
+        <label><input type="radio" name="post1" value="B"> B) Planned preventive maintenance</label><br>
+        <label><input type="radio" name="post1" value="C"> C) Condition-based maintenance</label><br>
+        <label><input type="radio" name="post1" value="D"> D) Manual maintenance</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q1','post-q2')">Next Question</button>
+      </div>
+      <div class="question" id="post-q2" style="display:none;">
+        <p>2. Which action BEST represents corrective maintenance?</p>
+        <label><input type="radio" name="post2" value="A"> A) Installing antivirus before an attack</label><br>
+        <label><input type="radio" name="post2" value="B"> B) Repairing a crashed hard drive</label><br>
+        <label><input type="radio" name="post2" value="C"> C) Running weekly backups</label><br>
+        <label><input type="radio" name="post2" value="D"> D) Cleaning dust inside the CPU</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q2','post-q3')">Next Question</button>
+      </div>
+      <div class="question" id="post-q3" style="display:none;">
+        <p>3. A company sets rules to replace old passwords monthly. What type of maintenance is this?</p>
+        <label><input type="radio" name="post3" value="A"> A) Corrective</label><br>
+        <label><input type="radio" name="post3" value="B"> B) Planned preventive</label><br>
+        <label><input type="radio" name="post3" value="C"> C) Emergency</label><br>
+        <label><input type="radio" name="post3" value="D"> D) Condition-based</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q3','post-q4')">Next Question</button>
+      </div>
+      <div class="question" id="post-q4" style="display:none;">
+        <p>4. Which preventive action ensures the computer avoids overheating?</p>
+        <label><input type="radio" name="post4" value="A"> A) Defragmenting the hard drive</label><br>
+        <label><input type="radio" name="post4" value="B"> B) Placing the unit in a well-ventilated area</label><br>
+        <label><input type="radio" name="post4" value="C"> C) Changing passwords regularly</label><br>
+        <label><input type="radio" name="post4" value="D"> D) Running an audit log</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q4','post-q5')">Next Question</button>
+      </div>
+      <div class="question" id="post-q5" style="display:none;">
+        <p>5. A technician checks a computer’s performance data and schedules tests only if errors are suspected.</p>
+        <label><input type="radio" name="post5" value="A"> A) Corrective maintenance</label><br>
+        <label><input type="radio" name="post5" value="B"> B) Planned preventive maintenance</label><br>
+        <label><input type="radio" name="post5" value="C"> C) Condition-based maintenance</label><br>
+        <label><input type="radio" name="post5" value="D"> D) Emergency troubleshooting</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q5','post-q6')">Next Question</button>
+      </div>
+      <div class="question" id="post-q6" style="display:none;">
+        <p>6. Which of the following is NOT a safe hand tool practice?</p>
+        <label><input type="radio" name="post6" value="A"> A) Using insulated tools when required</label><br>
+        <label><input type="radio" name="post6" value="B"> B) Carrying tools with a storage box</label><br>
+        <label><input type="radio" name="post6" value="C"> C) Cutting wire at a 90-degree angle</label><br>
+        <label><input type="radio" name="post6" value="D"> D) Storing sharp tools loosely in your pocket</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q6','post-q7')">Next Question</button>
+      </div>
+      <div class="question" id="post-q7" style="display:none;">
+        <p>7. Which is a sign that condition-based maintenance should be performed?</p>
+        <label><input type="radio" name="post7" value="A"> A) Computer won’t power on</label><br>
+        <label><input type="radio" name="post7" value="B"> B) Decreasing system performance indicators</label><br>
+        <label><input type="radio" name="post7" value="C"> C) Expired antivirus license</label><br>
+        <label><input type="radio" name="post7" value="D"> D) User wants a new upgrade</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q7','post-q8')">Next Question</button>
+      </div>
+      <div class="question" id="post-q8" style="display:none;">
+        <p>8. Why should you avoid shutting down using the power button only?</p>
+        <label><input type="radio" name="post8" value="A"> A) It saves electricity</label><br>
+        <label><input type="radio" name="post8" value="B"> B) It saves electricity</label><br>
+        <label><input type="radio" name="post8" value="C"> C) It deletes files automatically</label><br>
+        <label><input type="radio" name="post8" value="D"> D) It updates the operating system</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q8','post-q9')">Next Question</button>
+      </div>
+      <div class="question" id="post-q9" style="display:none;">
+        <p>9. A technician decides to backup all data as an image file twice a year. What does this practice prevent?</p>
+        <label><input type="radio" name="post9" value="A"> A) Loss of data in case of system crash</label><br>
+        <label><input type="radio" name="post9" value="B"> B) Overheating of the CPU</label><br>
+        <label><input type="radio" name="post9" value="C"> C) Unauthorized access by hackers</label><br>
+        <label><input type="radio" name="post9" value="D"> D) Hard drive fragmentation</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q9','post-q10')">Next Question</button>
+      </div>
+      <div class="question" id="post-q10" style="display:none;">
+        <p>10. Which general principle BEST summarizes the importance of computer maintenance?</p>
+        <label><input type="radio" name="post10" value="A"> A) To make computers look new</label><br>
+        <label><input type="radio" name="post10" value="B"> B) To ensure reliability, security, and efficiency</label><br>
+        <label><input type="radio" name="post10" value="C"> C) To avoid buying new hardware</label><br>
+        <label><input type="radio" name="post10" value="D"> D) To eliminate the need for software updates</label><br>
+        <button class="quiz-btn" onclick="checkAnswers2('post')">Check Answers</button>
+      </div>
+      <p id="posttest-score"></p>
+    </div>
+    </div>
+  </div>
+
+  <script>
+    // Tab switching
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+
+
+    
+ /* Questions navigation */
+    function nextQuestion(currentId, nextId) {
+      document.getElementById(currentId).style.display = "none";
+      document.getElementById(nextId).style.display = "block";
+    }
+	
+	 /* Questions navigation for post test*/
+    function nextQuestion2(currentId, nextId) {
+      document.getElementById(currentId).style.display = "none";
+      document.getElementById(nextId).style.display = "block";
+    }
+
+    /* Check Answers for pretest */
+    function checkAnswers1(prefix) {
+      const correct = { pre1: "B", pre2: "B", pre3: "B", pre4: "B", pre5: "B", pre6: "C", pre7: "C", pre8: "B", pre9: "A", pre10: "C" };
+      let score = 0;
+      for (let key in correct) {
+        let selected = document.querySelector(`input[name=${key}]:checked`);
+        if (selected && selected.value === correct[key]) {
+          score++;
+        }
+      }
+      document.getElementById(prefix+"test-score").textContent = `Your score: ${score} / 10`;
+    }
+	
+	/* Check Answers for posttest */
+    function checkAnswers2(prefix) {
+      const correct = { post1: "B", post2: "B", post3: "B", post4: "B", post5: "C", post6: "D", post7: "B", post8: "A", post9: "A", post10: "B" };
+      let score2 = 0;
+      for (let key in correct) {
+        let selected = document.querySelector(`input[name=${key}]:checked`);
+        if (selected && selected.value === correct[key]) {
+          score2++;
+        }
+      }
+      document.getElementById(prefix+"test-score").textContent = `Your score: ${score2} / 10`;
+    }
+	
+  </script>
+</body>
+</html>

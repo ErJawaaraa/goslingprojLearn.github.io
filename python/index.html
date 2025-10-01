@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PROJECT LEARN</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      height: 150vh;
+      font-family: "Courier New", monospace;
+      background: #fff;
+      color: #000
+    }
+    .sidebar {
+      width: 200px;
+      background: #000000;
+      color: #fff;
+      border-right: 8px solid #ff00ff;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 20px;
+    }
+    .sidebar h1 {
+      font-size: 2rem;
+      margin: 0 0 30px;
+      background: rgb(238, 255, 0);
+      color: black;
+      padding: 10px;
+      border: 4px solid black;
+      box-shadow: 6px 6px 0 #ff00ff;
+    }
+    .sidebar a {
+      text-decoration: none;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    .sidebar button {
+      width: 100%;
+      padding: 20px;
+      border: 4px solid #fff;
+      background: transparent;
+      color: #fff;
+      font-size: 1.2rem;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .sidebar button:hover {
+      background: #ff00ff;
+      border-color: #000;
+      transform: rotate(-2deg) translateX(5px);
+    }
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px;
+    }
+    .content h2 {
+      font-size: 3rem;
+      text-transform: uppercase;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+    .content p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      line-height: 1.5;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+    .grid a {
+      display: block;
+      padding: 40px;
+      background: yellow;
+      border: 6px solid black;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      color: black;
+      text-transform: uppercase;
+      box-shadow: 8px 8px 0 #000;
+      transition: all 0.1s ease;
+    }
+    .grid a:nth-child(2n) { background: #ff00ff; color: #fff; }
+    .grid a:nth-child(3n) { background: #00ffff; }
+    .grid a:hover {
+      transform: scale(1.05) rotate(1deg);
+      background: black;
+      color: white;
+      border-color: yellow;
+    }
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      border-top: 6px solid black;
+      font-weight: bold;
+      text-align: center;
+    }
+    .section {
+      margin-top: 50px;
+      padding: 20px;
+      border: 4px solid #000;
+      background: #fafafa;
+    }
+    .section h3 {
+      margin-top: 0;
+      font-size: 1.8rem;
+      color: #000000;
+    }
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      border-top: 6px solid #000;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h1>LEARN</h1>
+    <a href="#how"><button>How to Use</button></a>
+  </div>
+
+  <div class="content">
+    <div>
+      <h2>PROJECT LEARN</h2>
+      <h1>Computer System Servicing</h1>
+      <p>Choose what competency you want to Learn & Explore</p>
+    </div>
+
+    <div class="grid">
+      <a href="lesson1COC3.html">START COC 3</a>
+      <a href="lesson1COC4.html">Start COC 4</a>
+    </div>
+
+    <div id="how" class="section">
+      <h3>How to Use the Courseware?</h3>
+      <p>1. Pick a COC from the navigation or COC grid.<br>
+         2. Start with the Pre-Test to assess your current knowledge.<br>
+         3. Study the Lesson PDF carefully.<br>
+         4. Reinforce learning through the video activity.<br>
+         5. Finish with the Post-Test to evaluate progress.<br>
+         6. Move to the next lesson once you’re confident.</p>
+      </div>
+
+    <footer>
+      © LEARN - Learning Enchancement And Resource Network for Computer System Servicing // GOSLING
+    </footer>
+  </div>
+</body>
+</html>

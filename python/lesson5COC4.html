@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PROJECT LEARN</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      background-color: #f0fdf4;
+      overflow: hidden; /* prevent double scrollbars */
+    }
+    header {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: #22c55e;
+      color: black;
+      padding: 20px 10px 10px; /* tighter bottom padding */
+      text-align: center;
+      z-index: 1000;
+      border: 4px solid black;
+    }
+    header .title-btn {
+      display: inline-block;
+      padding: 15px 25px;
+      background: yellow;
+      color: black;
+      font-weight: bold;
+      font-size: 22px;
+      border: 4px solid black;
+      box-shadow: 6px 6px 0px black;
+      text-transform: uppercase;
+    }
+    header h1 {
+      margin: 8px 0 0 0; /* thinner space below title */
+      font-size: 18px;
+      font-weight: normal;
+    }
+    .container {
+      display: flex;
+      margin-top: 110px;
+      width: 100%;
+      height: calc(100vh - 110px);
+    }
+    .sidebar {
+  width: 200px;
+  background: #86efac;
+  padding: 30px 15px 15px; /* increased top padding */
+  position: fixed;
+  top: 110px;
+  left: 0;
+  height: calc(100vh - 110px);
+  border-right: 4px solid black;
+  overflow-y: auto;
+}
+    .sidebar button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      background: #22c55e;
+      color: white;
+      border: 4px solid black;
+      cursor: pointer;
+      font-weight: bold;
+      text-align: left;
+      transition: all 0.3s ease;
+      box-shadow: 6px 6px 0px black; /* brutalist block shadow */
+    }
+    .sidebar button:hover {
+      background: #15803d;
+      transform: translateX(5px);
+    }
+    .sidebar button.active {
+      background: yellow;
+      color: black;
+    }
+    .content {
+      flex: 1;
+      margin-left: 220px;
+      padding: 20px;
+      background: #f0fdf4;
+      border-left: 4px solid black;
+      height: calc(100vh - 110px);
+      overflow-y: auto;
+    }
+    .tabs {
+  display: flex;
+  border-bottom: 4px solid black;
+  margin-bottom: 15px;
+  margin-top: 50px; /* increased space above tabs */
+}
+    .tab {
+      padding: 6px 15px; /* thinner height */
+      background: #86efac;
+      cursor: pointer;
+      font-weight: bold;
+      border: 4px solid black;
+      border-bottom: none;
+      margin-right: 5px;
+    }
+    .tab:hover {
+      background: #34d399;
+    }
+    .tab.active {
+      background: yellow;
+      color: black;
+    }
+    .tab-content {
+      display: none;
+      border: 4px solid black;
+      padding: 20px;
+      padding-top: 20px; /* extra padding inside contents */
+      background: white;
+      max-height: calc(100vh - 200px);
+      overflow-y: auto;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .question {
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+    .options label {
+      display: block;
+      margin-left: 20px;
+    }
+    .navigation {
+      margin-top: 15px;
+    }
+    .navigation button {
+      padding: 8px 12px;
+      margin-right: 10px;
+      border: 4px solid black;
+      cursor: pointer;
+      background: #22c55e;
+      color: white;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 4px 4px 0px black; /* brutalist shadow for quiz buttons */
+    }
+    .navigation button:hover:not(:disabled) {
+      background: #15803d;
+    }
+    .navigation button:disabled {
+      background: #9ca3af;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+    button.check-btn {
+      margin-top: 20px;
+      padding: 10px 15px;
+      background: #22c55e;
+      color: white;
+      border: 4px solid black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 4px 4px 0px black;
+    }
+    button.check-btn:hover {
+      background: #15803d;
+    }
+    .score {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #065f46;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title-btn">PROJECT LEARN</div>
+    <h1>CORE COMPETENCY 4: Maintain and Repeair Computer System And Maintenance</h1>
+  </header>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+		<a href="index.html"><button>HOME</button></a>
+      <button>LESSON 1</button>
+      <a href="lesson2COC4.html"><button>LESSON 2</button></a>
+	  <a href="lesson3COC4.html"><button>LESSON 3</button></a>
+	  <a href="lessonCOC4.html"><button>LESSON 4</button></a>
+	  <a href="lessonCOC4.html"><button class="active">LESSON 5</button></a>
+	  <a href="lesson6COC4.html"><button>LESSON 6</button></a>
+	  <a href="lesson7COC4.html"><button>LESSON 7</button></a>
+    <a href="lesson8COC4.html"><button>LESSON 8</button></a>
+	  <a href="lesson9COC4.html"><button>LESSON 9</button></a>
+	  <a href="lesson10COC4.html"><button>LESSON 10</button></a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+      <div class="tabs">
+        <div class="tab active" data-tab="pretest">PRE-TEST</div>
+        <div class="tab" data-tab="lesson">LESSON</div>
+        <div class="tab" data-tab="reinforcement">REINFORCEMENT</div>
+        <div class="tab" data-tab="posttest">POST-TEST</div>
+      </div>
+
+      <!-- Pre-Test -->
+    <div id="pretest" class="tab-content active">
+      <div class="question" id="pre-q1">
+        <p>1. What CPU Stand for?</p>
+        <label><input type="radio" name="pre1" value="A"> A) Central Power Unit</label><br>
+        <label><input type="radio" name="pre1" value="B"> B) Central Processing Unit</label><br>
+        <label><input type="radio" name="pre1" value="C"> C) Computer Processing Utility</label><br>
+        <label><input type="radio" name="pre1" value="D"> D) Control Processing Unit</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q1','pre-q2')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q2" style="display:none;">
+        <p>2. Which of the following is a type of storage device?</p>
+        <label><input type="radio" name="pre2" value="A"> A) RAM</label><br>
+        <label><input type="radio" name="pre2" value="B"> B) SSD</label><br>
+        <label><input type="radio" name="pre2" value="C"> C) GPU</label><br>
+        <label><input type="radio" name="pre2" value="D"> D) CPU</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q2','pre-q3')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q3" style="display:none;">
+        <p>3. Which component is considered the "short-term memory" of the computer?</p>
+        <label><input type="radio" name="pre3" value="A"> A) HDD</label><br>
+        <label><input type="radio" name="pre3" value="B"> B) RAM</label><br>
+        <label><input type="radio" name="pre3" value="C"> C) GPU</label><br>
+        <label><input type="radio" name="pre3" value="D"> D) PSU</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q3','pre-q4')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q4" style="display:none;">
+        <p>4. The component that provides power to all computer parts is the:</p>
+        <label><input type="radio" name="pre4" value="A"> A) Motherboard</label><br>
+        <label><input type="radio" name="pre4" value="B"> B) Storage</label><br>
+        <label><input type="radio" name="pre4" value="C"> C) Power Supply Unit</label><br>
+        <label><input type="radio" name="pre4" value="D"> D) Graphics Card</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q4','pre-q5')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q5" style="display:none;">
+        <p>5. Which of the following is NOT an operating system?</p>
+        <label><input type="radio" name="pre5" value="A"> A) Linux</label><br>
+        <label><input type="radio" name="pre5" value="B"> B) macOs</label><br>
+        <label><input type="radio" name="pre5" value="C"> C) Windows</label><br>
+        <label><input type="radio" name="pre5" value="D"> D) Intel</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q5','pre-q6')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q6" style="display:none;">
+        <p>6. which port is commonly used for wired internet connection?</p>
+        <label><input type="radio" name="pre6" value="A"> A) HDMI</label><br>
+        <label><input type="radio" name="pre6" value="B"> B) USB</label><br>
+        <label><input type="radio" name="pre6" value="C"> C) Ethernet</label><br>
+        <label><input type="radio" name="pre6" value="D"> D) VGA</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q6','pre-q7')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q7" style="display:none;">
+        <p>7. What GPU Stands for?</p>
+        <label><input type="radio" name="pre7" value="A"> A) General Processing Unit</label><br>
+        <label><input type="radio" name="pre7" value="B"> B) Graphics Processing Unit</label><br>
+        <label><input type="radio" name="pre7" value="C"> C) Great Processing Utility</label><br>
+        <label><input type="radio" name="pre7" value="D"> D) Graphics Power Unit</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q7','pre-q8')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q8" style="display:none;">
+        <p>8. Which component is mainly responsible for storing data permanently?</p>
+        <label><input type="radio" name="pre8" value="A"> A) CPU</label><br>
+        <label><input type="radio" name="pre8" value="B"> B) RAM</label><br>
+        <label><input type="radio" name="pre8" value="C"> C) Storage (HDD/SSD)</label><br>
+        <label><input type="radio" name="pre8" value="D"> D) GPU</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q8','pre-q9')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q9" style="display:none;">
+        <p>9. Which form factor is the "smallest" among the options?</p>
+        <label><input type="radio" name="pre9" value="A"> A) ATX</label><br>
+        <label><input type="radio" name="pre9" value="B"> B) Micro-ATX</label><br>
+        <label><input type="radio" name="pre9" value="C"> C) Mini-ITX</label><br>
+        <label><input type="radio" name="pre9" value="D"> D) E-ATX</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q9','pre-q10')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q10" style="display:none;">
+        <p>10. Which example below is a mid-range CPU suitable for gaming and light editing?</p>
+        <label><input type="radio" name="pre10" value="A"> A) Intel Core i3</label><br>
+        <label><input type="radio" name="pre10" value="B"> B) Intel Core i5 / AMD Ryzen 5</label><br>
+        <label><input type="radio" name="pre10" value="C"> C) Intel Core i9 / AMD Ryzen 9</label><br>
+        <label><input type="radio" name="pre10" value="D"> D) Intel Pentium</label><br>
+        <button class="quiz-btn" onclick="checkAnswers1('pre')">Check Answers</button>
+      </div>
+      <p id="pretest-score"></p>
+    </div>
+
+				  <!-- Lesson -->
+			<div id="lesson" class="tab-content">
+			  <div id="pdf-viewer-container">
+				<iframe id="pdf-viewer" src="lessons_coc3/COC3_L10.pdf" width="100%" height="600px" style="border:none;"></iframe>
+			  </div>
+			</div>
+
+      <!-- Reinforcement -->
+      <div id="reinforcement" class="tab-content">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/yLch_8yGbOE?si=xgCSSmv_YAVXLJtd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+
+      <!-- Post-Test -->
+    <div id="posttest" class="tab-content">
+      <div class="question" id="post-q1">
+        <p>1. A student wants to multi-task with several apps and light video editing. Which RAM size is most recommended?</p>
+        <label><input type="radio" name="post1" value="A"> A) 4GB</label><br>
+        <label><input type="radio" name="post1" value="B"> B) 8GB</label><br>
+        <label><input type="radio" name="post1" value="C"> C) 16GB</label><br>
+        <label><input type="radio" name="post1" value="D"> D) 32GB</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q1','post-q2')">Next Question</button>
+      </div>
+      <div class="question" id="post-q2" style="display:none;">
+        <p>2. Which storage option gives the fastest performance for professionals working on large projects?</p>
+        <label><input type="radio" name="post2" value="A"> A) 1TB Storage</label><br>
+        <label><input type="radio" name="post2" value="B"> B) 512GB SSD</label><br>
+        <label><input type="radio" name="post2" value="C"> C) 1TB NVMe SSD</label><br>
+        <label><input type="radio" name="post2" value="D"> D) 128GB USB</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q2','post-q3')">Next Question</button>
+      </div>
+      <div class="question" id="post-q3" style="display:none;">
+        <p>3. if you're building a high-end gaming PC, which graphics card is the best choice?</p>
+        <label><input type="radio" name="post3" value="A"> A) Intel UHD Graphics</label><br>
+        <label><input type="radio" name="post3" value="B"> B) NVIDIA GTX 1650</label><br>
+        <label><input type="radio" name="post3" value="C"> C) NVIDIA RTX 3060</label><br>
+        <label><input type="radio" name="post3" value="D"> D) NVIDIA RTX 4090</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q3','post-q4')">Next Question</button>
+      </div>
+      <div class="question" id="post-q4" style="display:none;">
+        <p>4. What PSU (Power Supply Unit) is most suitable for a PC with high-end GPUs and future upgrades?</p>
+        <label><input type="radio" name="post4" value="A"> A) 450W Basic</label><br>
+        <label><input type="radio" name="post4" value="B"> B) 650W Bronze</label><br>
+        <label><input type="radio" name="post4" value="C"> C) 750W Silver</label><br>
+        <label><input type="radio" name="post4" value="D"> D) 850W+ Gold/Platinum</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q4','post-q5')">Next Question</button>
+      </div>
+      <div class="question" id="post-q5" style="display:none;">
+        <p>5. A programmer needs a system for 3D rendering and heavy video editing. which CPU is the best?</p>
+        <label><input type="radio" name="post5" value="A"> A) Intel Core i3</label><br>
+        <label><input type="radio" name="post5" value="B"> B) Intel Core i5</label><br>
+        <label><input type="radio" name="post5" value="C"> C) Intel Core i9 / AMD Ryzen 9</label><br>
+        <label><input type="radio" name="post5" value="D"> D) Intel inside</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q5','post-q6')">Next Question</button>
+      </div>
+      <div class="question" id="post-q6" style="display:none;">
+        <p>6. Which display specification is best suited for competitive gaming?</p>
+        <label><input type="radio" name="post6" value="A"> A) 14" HD (1366x768)</label><br>
+        <label><input type="radio" name="post6" value="B"> B) 15.6" Full HD (1920x1080)</label><br>
+        <label><input type="radio" name="post6" value="C"> C) 16" 4K UHD (3840x2160)</label><br>
+        <label><input type="radio" name="post6" value="D"> D) 144Hz/240Hz refresh rate display</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q6','post-q7')">Next Question</button>
+      </div>
+      <div class="question" id="post-q7" style="display:none;">
+        <p>7. If your PC motherboard is labeled B660M, the "M" indicates it is:</p>
+        <label><input type="radio" name="post7" value="A"> A) Mini-ITX</label><br>
+        <label><input type="radio" name="post7" value="B"> B) Micro-ATX</label><br>
+        <label><input type="radio" name="post7" value="C"> C) ATX</label><br>
+        <label><input type="radio" name="post7" value="D"> D) Extended ATX</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q7','post-q8')">Next Question</button>
+      </div>
+      <div class="question" id="post-q8" style="display:none;">
+        <p>8. Which of the following ports would you use to connect a modern external monitor?</p>
+        <label><input type="radio" name="post8" value="A"> A) VGA</label><br>
+        <label><input type="radio" name="post8" value="B"> B) HDMI</label><br>
+        <label><input type="radio" name="post8" value="C"> C) Serial</label><br>
+        <label><input type="radio" name="post8" value="D"> D) Parallel</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q8','post-q9')">Next Question</button>
+      </div>
+      <div class="question" id="post-q9" style="display:none;">
+        <p>9. A designer wants smooth perfromance with Adobe Photoshop and Premiere Pro. Which graphics card is the most practical option?</p>
+        <label><input type="radio" name="post9" value="A"> A) Intel UHD Graphics</label><br>
+        <label><input type="radio" name="post9" value="B"> B) NVIDIA GTX 1650</label><br>
+        <label><input type="radio" name="post9" value="C"> C) NVIDIA RTX 3060</label><br>
+        <label><input type="radio" name="post9" value="D"> D) NVIDIA RTX 4090</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q9','post-q10')">Next Question</button>
+      </div>
+      <div class="question" id="post-q10" style="display:none;">
+        <p>10. You want to upgrade your PC to improve multi-tasking performance. Which component you should upgrade first?</p>
+        <label><input type="radio" name="post10" value="A"> A) CPU</label><br>
+        <label><input type="radio" name="post10" value="B"> B) RAM</label><br>
+        <label><input type="radio" name="post10" value="C"> C) GPU</label><br>
+        <label><input type="radio" name="post10" value="D"> D) Power Supply</label><br>
+        <button class="quiz-btn" onclick="checkAnswers2('post')">Check Answers</button>
+      </div>
+      <p id="posttest-score"></p>
+    </div>
+    </div>
+  </div>
+
+  <script>
+    // Tab switching
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+
+
+    
+ /* Questions navigation */
+    function nextQuestion(currentId, nextId) {
+      document.getElementById(currentId).style.display = "none";
+      document.getElementById(nextId).style.display = "block";
+    }
+	
+	 /* Questions navigation for post test*/
+    function nextQuestion2(currentId, nextId) {
+      document.getElementById(currentId).style.display = "none";
+      document.getElementById(nextId).style.display = "block";
+    }
+
+    /* Check Answers for pretest */
+    function checkAnswers1(prefix) {
+      const correct = { pre1: "B", pre2: "B", pre3: "B", pre4: "C", pre5: "D", pre6: "C", pre7: "B", pre8: "C", pre9: "C", pre10: "B" };
+      let score = 0;
+      for (let key in correct) {
+        let selected = document.querySelector(`input[name=${key}]:checked`);
+        if (selected && selected.value === correct[key]) {
+          score++;
+        }
+      }
+      document.getElementById(prefix+"test-score").textContent = `Your score: ${score} / 10`;
+    }
+	
+	/* Check Answers for posttest */
+    function checkAnswers2(prefix) {
+  const correct = { 
+    post1: "C", post2: "C", post3: "D", post4: "D", post5: "C", 
+    post6: "D", post7: "B", post8: "B", post9: "C", post10: "B" 
+  };
+  let score2 = 0;
+
+  for (let key in correct) {
+    let selected = document.querySelector(`input[name="${key}"]:checked`);
+    if (selected && selected.value === correct[key]) {
+      score2++;
+    }
+  }
+
+  document.getElementById(prefix + "test-score").textContent = `Your score: ${score2} / 10`;
+}
+	
+  </script>
+</body>
+</html>

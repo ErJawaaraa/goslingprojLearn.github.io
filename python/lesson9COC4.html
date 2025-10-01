@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PROJECT LEARN</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      background-color: #f0fdf4;
+      overflow: hidden; /* prevent double scrollbars */
+    }
+    header {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: #22c55e;
+      color: black;
+      padding: 20px 10px 10px; /* tighter bottom padding */
+      text-align: center;
+      z-index: 1000;
+      border: 4px solid black;
+    }
+    header .title-btn {
+      display: inline-block;
+      padding: 15px 25px;
+      background: yellow;
+      color: black;
+      font-weight: bold;
+      font-size: 22px;
+      border: 4px solid black;
+      box-shadow: 6px 6px 0px black;
+      text-transform: uppercase;
+    }
+    header h1 {
+      margin: 8px 0 0 0; /* thinner space below title */
+      font-size: 18px;
+      font-weight: normal;
+    }
+    .container {
+      display: flex;
+      margin-top: 110px;
+      width: 100%;
+      height: calc(100vh - 110px);
+    }
+    .sidebar {
+  width: 200px;
+  background: #86efac;
+  padding: 30px 15px 15px; /* increased top padding */
+  position: fixed;
+  top: 110px;
+  left: 0;
+  height: calc(100vh - 110px);
+  border-right: 4px solid black;
+  overflow-y: auto;
+}
+    .sidebar button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      background: #22c55e;
+      color: white;
+      border: 4px solid black;
+      cursor: pointer;
+      font-weight: bold;
+      text-align: left;
+      transition: all 0.3s ease;
+      box-shadow: 6px 6px 0px black; /* brutalist block shadow */
+    }
+    .sidebar button:hover {
+      background: #15803d;
+      transform: translateX(5px);
+    }
+    .sidebar button.active {
+      background: yellow;
+      color: black;
+    }
+    .content {
+      flex: 1;
+      margin-left: 220px;
+      padding: 20px;
+      background: #f0fdf4;
+      border-left: 4px solid black;
+      height: calc(100vh - 110px);
+      overflow-y: auto;
+    }
+    .tabs {
+  display: flex;
+  border-bottom: 4px solid black;
+  margin-bottom: 15px;
+  margin-top: 50px; /* increased space above tabs */
+}
+    .tab {
+      padding: 6px 15px; /* thinner height */
+      background: #86efac;
+      cursor: pointer;
+      font-weight: bold;
+      border: 4px solid black;
+      border-bottom: none;
+      margin-right: 5px;
+    }
+    .tab:hover {
+      background: #34d399;
+    }
+    .tab.active {
+      background: yellow;
+      color: black;
+    }
+    .tab-content {
+      display: none;
+      border: 4px solid black;
+      padding: 20px;
+      padding-top: 20px; /* extra padding inside contents */
+      background: white;
+      max-height: calc(100vh - 200px);
+      overflow-y: auto;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .question {
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+    .options label {
+      display: block;
+      margin-left: 20px;
+    }
+    .navigation {
+      margin-top: 15px;
+    }
+    .navigation button {
+      padding: 8px 12px;
+      margin-right: 10px;
+      border: 4px solid black;
+      cursor: pointer;
+      background: #22c55e;
+      color: white;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 4px 4px 0px black; /* brutalist shadow for quiz buttons */
+    }
+    .navigation button:hover:not(:disabled) {
+      background: #15803d;
+    }
+    .navigation button:disabled {
+      background: #9ca3af;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+    button.check-btn {
+      margin-top: 20px;
+      padding: 10px 15px;
+      background: #22c55e;
+      color: white;
+      border: 4px solid black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 4px 4px 0px black;
+    }
+    button.check-btn:hover {
+      background: #15803d;
+    }
+    .score {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #065f46;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title-btn">PROJECT LEARN</div>
+    <h1>CORE COMPETENCY 4: Maintain And Repair Computer System And Maintenance</h1>
+  </header>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+		<a href="index.html"><button>HOME</button></a>
+      <button>LESSON 1</button>
+      <a href="lesson2COC4.html"><button>LESSON 2</button></a>
+	  <a href="lesson3COC4.html"><button>LESSON 3</button></a>
+	  <a href="lesson4COC4.html"><button>LESSON 4</button></a>
+	  <a href="lesson5COC4.html"><button>LESSON 5</button></a>
+	  <a href="lesson6COC4.html"><button>LESSON 6</button></a>
+	  <a href="lesson7COC4.html"><button>LESSON 7</button></a>
+    <a href="lesson8COC4.html"><button>LESSON 8</button></a>
+	  <a href="lesson9COC4.html"><button class="active">LESSON 9</button></a>
+	  <a href="lesson10COC4.html"><button>LESSON 10</button></a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+      <div class="tabs">
+        <div class="tab active" data-tab="pretest">PRE-TEST</div>
+        <div class="tab" data-tab="lesson">LESSON</div>
+        <div class="tab" data-tab="reinforcement">REINFORCEMENT</div>
+        <div class="tab" data-tab="posttest">POST-TEST</div>
+      </div>
+
+      <!-- Pre-Test -->
+    <div id="pretest" class="tab-content active">
+      <div class="question" id="pre-q1">
+        <p>1. What is another name for a work order?</p>
+        <label><input type="radio" name="pre1" value="A"> A) Job request</label><br>
+        <label><input type="radio" name="pre1" value="B"> B) Job order</label><br>
+        <label><input type="radio" name="pre1" value="C"> C) Purchase order</label><br>
+        <label><input type="radio" name="pre1" value="D"> D) Delivery receipt</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q1','pre-q2')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q2" style="display:none;">
+        <p>2. A work order is usually authorized by:</p>
+        <label><input type="radio" name="pre2" value="A"> A) Employees</label><br>
+        <label><input type="radio" name="pre2" value="B"> B) Managers</label><br>
+        <label><input type="radio" name="pre2" value="C"> C) Customers</label><br>
+        <label><input type="radio" name="pre2" value="D"> D) Suppliers</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q2','pre-q3')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q3" style="display:none;">
+        <p>3. Which of the following BEST describes a work order?</p>
+        <label><input type="radio" name="pre3" value="A"> A) A request to buy items</label><br>
+        <label><input type="radio" name="pre3" value="B"> B) A formal document for workers to complete a task</label><br>
+        <label><input type="radio" name="pre3" value="C"> C) A receipt for purchased equipment</label><br>
+        <label><input type="radio" name="pre3" value="D"> D) A list of finished tasks</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q3','pre-q4')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q4" style="display:none;">
+        <p>4. What is a common reason for requesting a work order?</p>
+        <label><input type="radio" name="pre4" value="A"> A) Hiring staff</label><br>
+        <label><input type="radio" name="pre4" value="B"> B) Preventive maintenance or repairs</label><br>
+        <label><input type="radio" name="pre4" value="C"> C) Selling spare parts</label><br>
+        <label><input type="radio" name="pre4" value="D"> D) Computer formatting</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q4','pre-q5')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q5" style="display:none;">
+        <p>5. Work orders help monitor:</p>
+        <label><input type="radio" name="pre5" value="A"> A) Resources spent on maintenance</label><br>
+        <label><input type="radio" name="pre5" value="B"> B) Employee attendance</label><br>
+        <label><input type="radio" name="pre5" value="C"> C) Customer satisfaction surveys</label><br>
+        <label><input type="radio" name="pre5" value="D"> D) Sales reports</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q5','pre-q6')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q6" style="display:none;">
+        <p>6. A work request usually comes from:</p>
+        <label><input type="radio" name="pre6" value="A"> A) Maintenance managers</label><br>
+        <label><input type="radio" name="pre6" value="B"> B) Non-maintenance personnel</label><br>
+        <label><input type="radio" name="pre6" value="C"> C) Delivery drivers</label><br>
+        <label><input type="radio" name="pre6" value="D"> D) IT specialists</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q6','pre-q7')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q7" style="display:none;">
+        <p>7. Which of the following BEST describes a purchase order (PO)?</p>
+        <label><input type="radio" name="pre7" value="A"> A) A task authorization form</label><br>
+        <label><input type="radio" name="pre7" value="B"> B) A document for ordering materials/products</label><br>
+        <label><input type="radio" name="pre7" value="C"> C) A checklist for workers</label><br>
+        <label><input type="radio" name="pre7" value="D"> D) A warranty form</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q7','pre-q8')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q8" style="display:none;">
+        <p>8. n maintenance, which type of task is planned in advance?</p>
+        <label><input type="radio" name="pre8" value="A"> A) Emergency repair</label><br>
+        <label><input type="radio" name="pre8" value="B"> B) Planned maintenance</label><br>
+        <label><input type="radio" name="pre8" value="C"> C) Unplanned breakdown</label><br>
+        <label><input type="radio" name="pre8" value="D"> D) Random service</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q8','pre-q9')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q9" style="display:none;">
+        <p>9. What happens before a technician can begin a work order?</p>
+        <label><input type="radio" name="pre9" value="A"> A) They must submit a sales report</label><br>
+        <label><input type="radio" name="pre9" value="B"> B) They must be assigned to the task</label><br>
+        <label><input type="radio" name="pre9" value="C"> C) They must buy new parts</label><br>
+        <label><input type="radio" name="pre9" value="D"> D) They must replace the manager</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('pre-q9','pre-q10')">Next Question</button>
+      </div>
+      <div class="question" id="pre-q10" style="display:none;">
+        <p>10. losing a work order usually requires:</p>
+        <label><input type="radio" name="pre10" value="A"> A) Customer’s payment</label><br>
+        <label><input type="radio" name="pre10" value="B"> B) Manager’s sign-off and documentation</label><br>
+        <label><input type="radio" name="pre10" value="C"> C) New equipment purchase</label><br>
+        <label><input type="radio" name="pre10" value="D"> D) Employee resignation</label><br>
+        <button class="quiz-btn" onclick="checkAnswers1('pre')">Check Answers</button>
+      </div>
+      <p id="pretest-score"></p>
+    </div>
+
+				  <!-- Lesson -->
+			<div id="lesson" class="tab-content">
+			  <div id="pdf-viewer-container">
+				<iframe id="pdf-viewer" src="lessons_coc4/COC4_L9.pdf" width="100%" height="600px" style="border:none;"></iframe>
+			  </div>
+			</div>
+
+      <!-- Reinforcement -->
+      <div id="reinforcement" class="tab-content">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OOeUSBzcuTI?si=lsvpWeS35gWWGTae" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+
+      <!-- Post-Test -->
+    <div id="posttest" class="tab-content">
+      <div class="question" id="post-q1">
+        <p>1. Which of the following is the MAIN importance of work orders?</p>
+        <label><input type="radio" name="post1" value="A"> A) To standardize workflows and track maintenance tasks</label><br>
+        <label><input type="radio" name="post1" value="B"> B) To sell new equipment</label><br>
+        <label><input type="radio" name="post1" value="C"> C) To replace job schedules</label><br>
+        <label><input type="radio" name="post1" value="D"> D) To monitor employee salaries</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q1','post-q2')">Next Question</button>
+      </div>
+      <div class="question" id="post-q2" style="display:none;">
+        <p>2. When is a work request converted into a work order?</p>
+        <label><input type="radio" name="post2" value="A"> A) When approved by a maintenance manager</label><br>
+        <label><input type="radio" name="post2" value="B"> B) When completed by the technician</label><br>
+        <label><input type="radio" name="post2" value="C"> C) When the customer pays</label><br>
+        <label><input type="radio" name="post2" value="D"> D) When equipment is purchased</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q2','post-q3')">Next Question</button>
+      </div>
+      <div class="question" id="post-q3" style="display:none;">
+        <p>3. A technician reports that a machine overheats. The first document likely created is:</p>
+        <label><input type="radio" name="post3" value="A"> A) Sales invoice</label><br>
+        <label><input type="radio" name="post3" value="B"> B) Work request</label><br>
+        <label><input type="radio" name="post3" value="C"> C) Purchase order</label><br>
+        <label><input type="radio" name="post3" value="D"> D) Delivery slip</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q3','post-q4')">Next Question</button>
+      </div>
+      <div class="question" id="post-q4" style="display:none;">
+        <p>4. Which BEST explains the difference between a work order and a purchase order?</p>
+        <label><input type="radio" name="post4" value="A"> A) Work order assigns tasks, while purchase order lists materials needed</label><br>
+        <label><input type="radio" name="post4" value="B"> B) Work order lists salaries, while purchase order lists overtime</label><br>
+        <label><input type="radio" name="post4" value="C"> C) Work order is for customers, while purchase order is for employees</label><br>
+        <label><input type="radio" name="post4" value="D"> D) Work order and purchase order are the same</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q4','post-q5')">Next Question</button>
+      </div>
+      <div class="question" id="post-q5" style="display:none;">
+        <p>5. If a maintenance job has a strict deadline, the work order must:</p>
+        <label><input type="radio" name="post5" value="A"> A) Be closed immediately</label><br>
+        <label><input type="radio" name="post5" value="B"> B) Be marked with a priority level</label><br>
+        <label><input type="radio" name="post5" value="C"> C) Be converted into a purchase order</label><br>
+        <label><input type="radio" name="post5" value="D"> D) Be assigned without approval</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q5','post-q6')">Next Question</button>
+      </div>
+      <div class="question" id="post-q6" style="display:none;">
+        <p>6. Which step comes before assigning a technician in the workflow?</p>
+        <label><input type="radio" name="post6" value="A"> A) Schedule the work order</label><br>
+        <label><input type="radio" name="post6" value="B"> B) Close the work order</label><br>
+        <label><input type="radio" name="post6" value="C"> C) Sign the purchase order</label><br>
+        <label><input type="radio" name="post6" value="D"> D) Write the sales invoice</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q6','post-q7')">Next Question</button>
+      </div>
+      <div class="question" id="post-q7" style="display:none;">
+        <p>7. After completing the task, what should always be done with a work order?</p>
+        <label><input type="radio" name="post7" value="A"> A) Store it in the inventory room</label><br>
+        <label><input type="radio" name="post7" value="B"> B) Close and document it properly</label><br>
+        <label><input type="radio" name="post7" value="C"> C) Delete it from the system</label><br>
+        <label><input type="radio" name="post7" value="D"> D) Replace it with a new job request</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q7','post-q8')">Next Question</button>
+      </div>
+      <div class="question" id="post-q8" style="display:none;">
+        <p>8. Why is documenting a closed work order important?</p>
+        <label><input type="radio" name="post8" value="A"> A) For financial profit only</label><br>
+        <label><input type="radio" name="post8" value="B"> B) For future reference and maintenance history</label><br>
+        <label><input type="radio" name="post8" value="C"> C) To increase employee salary</label><br>
+        <label><input type="radio" name="post8" value="D"> D) To create new job titles</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q8','post-q9')">Next Question</button>
+      </div>
+      <div class="question" id="post-q9" style="display:none;">
+        <p>9. Which type of maintenance is unplanned and may reduce equipment lifespan?</p>
+        <label><input type="radio" name="post9" value="A"> A) Planned maintenance</label><br>
+        <label><input type="radio" name="post9" value="B"> B) Condition-based maintenance</label><br>
+        <label><input type="radio" name="post9" value="C"> C) Unplanned maintenance</label><br>
+        <label><input type="radio" name="post9" value="D"> D) Preventive maintenance</label><br>
+        <button class="quiz-btn" onclick="nextQuestion('post-q9','post-q10')">Next Question</button>
+      </div>
+      <div class="question" id="post-q10" style="display:none;">
+        <p>10. Who should ensure that all instructions in a work order were completed correctly?</p>
+        <label><input type="radio" name="post10" value="A"> A) The supplier</label><br>
+        <label><input type="radio" name="post10" value="B"> B) The manager or supervisor</label><br>
+        <label><input type="radio" name="post10" value="C"> C) The technician alone</label><br>
+        <label><input type="radio" name="post10" value="D"> D) The customer</label><br>
+        <button class="quiz-btn" onclick="checkAnswers2('post')">Check Answers</button>
+      </div>
+      <p id="posttest-score"></p>
+    </div>
+    </div>
+  </div>
+
+  <script>
+    // Tab switching
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      });
+    });
+
+
+    
+ /* Questions navigation */
+    function nextQuestion(currentId, nextId) {
+      document.getElementById(currentId).style.display = "none";
+      document.getElementById(nextId).style.display = "block";
+    }
+	
+	 /* Questions navigation for post test*/
+    function nextQuestion2(currentId, nextId) {
+      document.getElementById(currentId).style.display = "none";
+      document.getElementById(nextId).style.display = "block";
+    }
+
+    /* Check Answers for pretest */
+    function checkAnswers1(prefix) {
+      const correct = { pre1: "B", pre2: "B", pre3: "B", pre4: "B", pre5: "A", pre6: "B", pre7: "B", pre8: "B", pre9: "B", pre10: "B" };
+      let score = 0;
+      for (let key in correct) {
+        let selected = document.querySelector(`input[name=${key}]:checked`);
+        if (selected && selected.value === correct[key]) {
+          score++;
+        }
+      }
+      document.getElementById(prefix+"test-score").textContent = `Your score: ${score} / 10`;
+    }
+	
+	/* Check Answers for posttest */
+    function checkAnswers2(prefix) {
+      const correct = { post1: "A", post2: "A", post3: "B", post4: "A", post5: "B", post6: "A", post7: "B", post8: "B", post9: "C", post10: "B" };
+      let score2 = 0;
+      for (let key in correct) {
+        let selected = document.querySelector(`input[name=${key}]:checked`);
+        if (selected && selected.value === correct[key]) {
+          score2++;
+        }
+      }
+      document.getElementById(prefix+"test-score").textContent = `Your score: ${score2} / 10`;
+    }
+	
+  </script>
+</body>
+</html>
